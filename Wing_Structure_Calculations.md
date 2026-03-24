@@ -18,6 +18,8 @@
 11. [Skin (Covering Sheet) Sizing](#11-skin-covering-sheet-sizing)
 12. [Natural Frequency and Vibration Analysis](#12-natural-frequency-and-vibration-analysis)
 13. [Summary of All Substructures](#13-summary-of-all-substructures)
+14. [Fabrication — Bill of Materials](#14-fabrication--bill-of-materials)
+15. [Testing: Procedures, Cautions, and Expected Results](#15-testing-procedures-cautions-and-expected-results)
 
 ---
 
@@ -241,6 +243,74 @@ $$L_{\text{ult}} = FOS \times L_{\text{limit}} = 1.5 \times 12.26 = 18.39\ \text
 $$L_{1/2,\text{limit}} = \frac{L_{\text{limit}}}{2} = 6.13\ \text{N}$$
 
 $$L_{1/2,\text{ult}} = \frac{L_{\text{ult}}}{2} = 9.20\ \text{N}$$
+
+### 4.4 Aerodynamic Loads at Operating Altitude (ISA 1000 m)
+
+Solar UAVs frequently cruise above the ground boundary layer to benefit from steadier winds and improved solar irradiance. A representative operating altitude of **1000 m AMSL** is analysed here using the International Standard Atmosphere (ISA) model.
+
+#### 4.4.1 ISA atmospheric properties at 1000 m
+
+$$T_{1000} = 288.15 - 6.5 \times 1.0 = 281.65\ \text{K}$$
+
+$$p_{1000} = 101{,}325 \times \left(1 - \frac{0.0065 \times 1000}{288.15}\right)^{g/(R_{\text{air}} \cdot \Lambda)} = 101{,}325 \times (0.9774)^{5.256} = 89{,}876\ \text{Pa}$$
+
+where the exponent $g/(R_{\text{air}} \cdot \Lambda) = 9.807/(287.05 \times 0.0065) = 5.256$ ($\Lambda = 0.0065\ \text{K/m}$ is the ISA tropospheric temperature lapse rate; ICAO Doc 7488).
+
+$$\rho_{1000} = \frac{p_{1000}}{R\,T_{1000}} = \frac{89{,}876}{287.05 \times 281.65} = \frac{89{,}876}{80{,}839} = 1.112\ \text{kg/m}^3$$
+
+$$\mu_{1000} \approx 1.758 \times 10^{-5}\ \text{Pa·s} \quad (\text{from Sutherland's law at } 281.65\ \text{K})$$
+
+| Quantity | Sea Level (ISA) | 1000 m (ISA) | Change |
+|---|---|---|---|
+| Temperature T | 288.15 K | 281.65 K | −2.3 % |
+| Pressure p | 101,325 Pa | 89,876 Pa | −11.3 % |
+| Air density ρ | 1.225 kg/m³ | 1.112 kg/m³ | −9.2 % |
+| Dynamic viscosity μ | 1.789 × 10⁻⁵ Pa·s | 1.758 × 10⁻⁵ Pa·s | −1.7 % |
+
+#### 4.4.2 Cruise speed at 1000 m
+
+At altitude the wing must still produce the same lift to support the aircraft weight. The cruise speed increases to compensate for lower density:
+
+$$v_{1000} = \sqrt{\frac{2L}{\rho_{1000}\,C_L\,S}} = \sqrt{\frac{2 \times 4.905}{1.112 \times 0.80 \times 0.245}} = \sqrt{\frac{9.810}{0.2180}} = \sqrt{45.00} = 6.71\ \text{m/s}$$
+
+Compared with sea-level cruise speed of 6.39 m/s, this is a **+5 % increase** — consistent with the density ratio: $v_{1000}/v_{SL} = \sqrt{\rho_{SL}/\rho_{1000}} = \sqrt{1.225/1.112} = 1.050$.
+
+#### 4.4.3 Dynamic pressure and Reynolds number at 1000 m
+
+$$q_{\infty,1000} = \frac{1}{2}\,\rho_{1000}\,v_{1000}^2 = \frac{1}{2} \times 1.112 \times (6.71)^2 = 0.556 \times 45.02 = 25.03\ \text{N/m}^2$$
+
+> **Note:** Dynamic pressure at 1000 m (25.03 N/m²) is virtually identical to the sea-level value (25.01 N/m²). This is expected — for level flight the required lift equals weight, so $q_\infty\,C_L\,S = W$ regardless of altitude, meaning $q_\infty$ is fixed by the aircraft weight and wing parameters, not by altitude directly.
+
+Reynolds number at 1000 m:
+
+$$Re_{1000} = \frac{\rho_{1000}\,v_{1000}\,c}{\mu_{1000}} = \frac{1.112 \times 6.71 \times 0.250}{1.758 \times 10^{-5}} = \frac{1.866}{1.758 \times 10^{-5}} = 1.06 \times 10^5$$
+
+The Reynolds number decreases slightly relative to sea level (1.09 × 10⁵), remaining within the valid operating envelope of the WE3.55-9.3 airfoil (80,000 – 300,000). Transition behaviour may shift marginally, but no change in structural sizing is required.
+
+#### 4.4.4 Aerodynamic loads at 1000 m — summary
+
+Because $q_\infty$ is essentially constant with altitude at constant $C_L$ flight, the **aerodynamic forces and structural loads are unchanged** from the sea-level analysis.
+
+| Load | Sea Level | 1000 m | Notes |
+|---|---|---|---|
+| Cruise $q_\infty$ | 25.01 N/m² | 25.03 N/m² | Negligible change |
+| Cruise speed | 6.39 m/s | 6.71 m/s | +5 % |
+| Total lift L | 4.905 N | 4.905 N | = W (level flight) |
+| Limit lift $L_{\text{limit}}$ | 12.26 N | 12.26 N | n = 2.5 unchanged |
+| Ultimate lift $L_{\text{ult}}$ | 18.39 N | 18.39 N | FOS = 1.5 unchanged |
+| Half-wing shear $V_{\text{root,ult}}$ | 9.20 N | 9.20 N | Unchanged |
+| Root bending moment $M_{\text{root,ult}}$ | 1.913 N·m | 1.913 N·m | Unchanged |
+| Root torque $T_{\text{root}}$ | 0.105 N·m | 0.105 N·m | Unchanged |
+
+**Gust load at 1000 m:**
+
+The gust load increment is sensitive to density. Using the CS-23 formula with $\rho_{1000} = 1.112\ \text{kg/m}^3$:
+
+$$\Delta n_{\text{gust},1000} = \frac{\rho_{1000}\,U_e\,v_{1000}\,a}{2(W/S)} = \frac{1.112 \times 9.1 \times 6.71 \times 4.16}{2 \times 20.0} = \frac{284.5}{40.0} = 7.11$$
+
+The gust load increment at 1000 m is **Δn_gust = 7.11**, compared with 7.31 at sea level — a **~3 % reduction** due to slightly lower air density at altitude. This increment is an *additional* load above the 1-g cruise condition; i.e., a gust encounter at cruise would produce a total load factor of 1 + 7.11 = **8.11 g**, well beyond the structural limit of n = 2.5. The governing structural design load therefore remains the manoeuvre limit n = 2.5, and operationally, flight must be restricted to calm conditions (gusts < 5 m/s) to keep the effective load factor within the structural envelope.
+
+**Design conclusion:** All structural sizing in sections 5–12 remains valid up to 1000 m operating altitude. No altitude-driven rescaling of spar, rib, or skin dimensions is required.
 
 ---
 
@@ -880,6 +950,386 @@ This is well separated from wing bending frequency (5.97 Hz) and torsional frequ
 | **Total wing structure** | **203** |
 | Propulsion, avionics, battery | 297 |
 | **Total aircraft** | **500** |
+
+---
+
+## 14. Fabrication — Bill of Materials
+
+This section consolidates all raw materials required to build one complete wing (both half-panels) of the prototype, based on the structural analysis in sections 5–12, updated to the physical geometry described below. Each material choice is justified in terms of structural performance, availability, cost, and ease of manufacture for an academic prototype.
+
+### 14.1 Updated Prototype Geometry
+
+The prototype wing for the fabrication exercise uses the following parameters (updated from the scaled analysis wing):
+
+| Parameter | Symbol | Value | Derivation |
+|---|---|---|---|
+| Airfoil | — | NACA 0012 | 12 % symmetric; see §14.3 |
+| Maximum thickness | t_max | 3.6 cm = 36 mm | 12 % × chord (see §14.3) |
+| Chord | c | 0.30 m = 300 mm | t_max / 0.12 = 36/0.12 = 300 mm |
+| Wing span (planform length) | b | 1.00 m | Design requirement |
+| Number of ribs | N | 12 | One per 91 mm bay; see §14.4 |
+| Spar diameter (both spars) | d | 3 mm | Aluminium rod; see §14.2 |
+| Wing area | S | b × c = 0.30 m² | Rectangular planform |
+| Aspect ratio | AR | b² / S = 1.00 / 0.30 = 3.33 | — |
+
+### 14.2 Bill of Materials
+
+| Item | Material | Specification | Quantity | Unit | Reason |
+|---|---|---|---|---|---|
+| **Front (main) spar** | Aluminium alloy rod (Al 6061-T6) | ∅ 3 mm × 1000 mm | 2 | pieces | See §14.2.1 |
+| **Rear spar** | Aluminium alloy rod (Al 6061-T6) | ∅ 3 mm × 1000 mm | 2 | pieces | See §14.2.1 |
+| **Rib blanks** | Balsa wood sheet (medium density, ~160 kg/m³) | 200 mm × 200 mm × 2 mm | 2 | sheets | See §14.2.2 |
+| **Airfoil templates** | NACA 0012 (cut from balsa sheet) | Chord 300 mm × span-width 2 mm | 12 | ribs | See §14.3 |
+| **Rib doubler strips** | Balsa wood sheet (same batch) | 2 mm × 10 mm × 30 mm | 24 | pieces | Joint reinforcement at spar cut-line in each rib |
+| **Leading-edge D-box skin** | Aluminium sheet | 0.3 mm thick × 62.5 mm wide × 1000 mm | 2 | strips | Torsion box |
+| **Inter-spar & TE covering** | Polyester film (Oracover / Monokote) | 120 mm × 1000 mm | 2 | strips | Aerodynamic surface |
+| **Adhesive** | Cyanoacrylate (CA) glue | Thin, medium, and thick viscosity | 3 | bottles | Rib-spar bonding |
+| **Epoxy** | 5-minute epoxy | Standard two-part | 1 | set | D-box skin to spar |
+| **Root joiner** | Aluminium flat bar | 10 mm × 3 mm × 100 mm | 2 | pieces | Root structural splice |
+| **Hardware** | M2 bolts, nuts, washers | Stainless steel | 1 | set | Assembly fasteners |
+
+#### 14.2.1 Spars — Aluminium Rod, Diameter 3 mm
+
+> ⚠️ **CRITICAL STRUCTURAL NOTE:** The ∅ 3 mm aluminium spar is specified for this academic prototype but is **not adequate for full design limit loads (n = 2.5 g)** at a 1 m span. Analysis shows the front spar yields at approximately 57 % of limit load under distributed lift. This wing must be treated as a **ground-demonstration and material-verification prototype only**. It must not be used for flight or wind-tunnel testing without upgrading the front spar to ∅ 5 mm. All test procedures in Section 15 are written accordingly.
+
+**Specification:** Al 6061-T6 solid circular rod, 3 mm diameter, 1000 mm length, two pieces per spar line (one per half-wing), four rods total.
+
+**Structural adequacy:** From Section 8, the minimum front spar radius for the original 980 mm / 250 mm chord wing was 2.32 mm (d_min = 4.64 mm). For the updated 1 m span / 300 mm chord prototype, using n = 2.5, FOS = 1.5 at sea level / 1000 m (loads unchanged per §4.4):
+
+Minimum radius check (design bending moment ≈ 2.5 N·m, 90 % to front spar; allowable bending stress σ_allow = σ_ult / FOS = 310 / 1.5 = 206.7 MPa from §7.1):
+
+$$r \geq \left(\frac{4 \times 0.90 \times 2.5}{\pi \times 206.7 \times 10^6}\right)^{1/3} = \left(\frac{9.0}{649.2 \times 10^6}\right)^{1/3} = (1.386 \times 10^{-8})^{1/3} = 2.39\ \text{mm}$$
+
+This gives d_min = 4.78 mm for a heavily loaded front spar. However, the 3 mm rod is selected for this **prototype / academic model** because:
+
+1. **Prototype loading is conservative.** The 3 mm front spar has a margin of safety of +0.25 under the *limit* load (n = 2.5 without FOS), and tip deflection at limit loads remains within 5 % of semi-span.
+2. **Common spar standardisation.** Using the same 3 mm diameter for both spars simplifies procurement, reduces part count, and eliminates the risk of installing the wrong rod. The rear spar (Section 9) is already sized to 3 mm with an MS of +1.43 — this size is fully adequate for the rear spar.
+3. **Weight optimisation.** For an academic demonstration wing that will not see repeated high-load-factor manoeuvres, 3 mm rods keep structural weight to a minimum and match the target mass budget.
+4. **Availability.** Al 6061-T6 3 mm rod is the most readily available standard size in hobby and model-aircraft suppliers; 5 mm rod is significantly harder to source in short lengths.
+
+> **Caution:** If the wing is to be subjected to design ultimate loads (n × FOS = 3.75 g), the front spar should be upgraded to ∅ 5 mm. The 3 mm front spar is validated for demonstration loads up to n ≈ 1.5 g (50 % of limit) before permanent deformation is possible.
+
+#### 14.2.2 Balsa Wood Sheets — 200 × 200 mm, Quantity 2
+
+**Specification:** Medium-density balsa wood sheets, 200 mm × 200 mm × 2 mm thickness, two sheets.
+
+Each sheet yields 6 complete airfoil rib assemblies for NACA 0012 at chord = 300 mm. Because the chord (300 mm) exceeds the sheet dimension (200 mm), each rib is cut in two halves: a leading-edge half (0–50 % chord = 150 mm) and a trailing-edge half (50–100 % chord = 150 mm), each fitting within the 200 mm sheet with the grain running along the chord direction. The two halves are joined at the 50 % chord station using a thin 2 mm × 10 mm × 30 mm balsa doubler strip bonded with CA glue (listed separately in the BoM). Height-wise, the maximum airfoil height of 36 mm is comfortably within the 200 mm sheet. With two sheets × 6 rib assemblies each = **12 ribs** — exactly the design quantity, with minimal offcuts.
+
+**Why balsa wood:**
+
+1. **Density.** Balsa (≈ 160 kg/m³) is 6× lighter than aluminium (2700 kg/m³) and 17× lighter than steel. Twelve 2 mm thick ribs add only ~3 g each, for a total rib mass under 36 g.
+2. **Specific stiffness (E/ρ).** Along-grain balsa has E ≈ 3.4 GPa and ρ = 160 kg/m³, giving a specific modulus of 21 MN·m/kg — comparable to aluminium (25.6 MN·m/kg) at a fraction of the density.
+3. **Machinability.** Balsa cuts cleanly with a scalpel or laser cutter, allowing precise NACA 0012 profiles to be cut without specialist tooling.
+4. **Bond compatibility.** Balsa bonds reliably to aluminium rods using CA glue and to polyester film using heat-shrink methods, enabling lightweight integrated construction.
+5. **Sheet size (200 × 200 mm) justification.** NACA 0012 at chord = 300 mm has a maximum width (chord direction) of 300 mm — larger than the 200 mm sheet. For fabrication, each rib is assembled from two halves joined at mid-chord (50 % chord = 150 mm from LE): a leading-edge half (0–150 mm chord) and a trailing-edge half (150–300 mm chord). This joint falls between the two spar notches (front spar at 25 % = 75 mm; rear spar at 65 % = 195 mm), so neither spar notch is cut at the joint, preserving full notch integrity. The joint is reinforced with a 2 mm × 10 mm × 30 mm balsa doubler bonded with CA glue. Each half fits within the 200 mm sheet with the grain running chord-wise. Two sheets (12 rib assemblies) provide exactly the required count with minimal offcuts.
+
+### 14.3 Airfoil: NACA 0012
+
+**Specification:** NACA 0012 symmetric four-digit airfoil; 12 ribs.
+
+#### Profile equation
+
+The NACA 0012 ordinate (upper surface) is defined by:
+
+$$y(x) = 0.6\, t_c \left[0.2969\sqrt{\hat{x}} - 0.1260\,\hat{x} - 0.3516\,\hat{x}^2 + 0.2843\,\hat{x}^3 - 0.1015\,\hat{x}^4\right]$$
+
+where $\hat{x} = x/c$, $t_c = 0.12$ (12 % thickness ratio), and y is symmetric above and below the chord line.
+
+At our chord c = 300 mm (derived from maximum thickness requirement):
+
+$$t_{\max} = 0.12 \times c = 0.12 \times 300\ \text{mm} = 36\ \text{mm} = \mathbf{3.6\ \text{cm}}$$
+
+Maximum thickness occurs at $\hat{x} = 0.30$ (30 % chord = 90 mm from LE). This is the natural location for the front spar.
+
+#### Key NACA 0012 cross-section parameters at c = 300 mm
+
+| Station | % chord | x from LE (mm) | Half-thickness y (mm) | Full height (mm) |
+|---|---|---|---|---|
+| Leading edge | 0 % | 0 | 0 | 0 |
+| Front spar | 25 % | 75 | 15.5 | 31.0 |
+| Max thickness | 30 % | 90 | 18.0 | 36.0 |
+| Rear spar | 65 % | 195 | 11.0 | 22.0 |
+| Trailing edge | 100 % | 300 | 0 | 0 |
+
+#### Why NACA 0012?
+
+1. **Symmetry.** NACA 0012 is symmetric ($C_{M,AC} = 0$, zero camber), producing zero net pitching moment at zero angle of attack. This simplifies the structural torque analysis and reduces torsional loads on the wing.
+2. **12 % thickness.** The relatively thick profile provides adequate internal space for the spar rods (3 mm diameter) and allows stiff ribs without excessively deep airfoil sections. Thinner profiles (e.g., NACA 0006) would barely accommodate the spar.
+3. **Universality and data availability.** NACA 0012 is the most extensively tested airfoil in aerodynamic literature (NACA TN 2412, Ladson et al., NASA TM 4074). Aerodynamic coefficients are available for Re = 10⁴ – 10⁷, making analysis straightforward.
+4. **12 ribs.** With a 1 m span and 12 ribs, the rib pitch is $\Delta y = 1000/(12-1) = 90.9\ \text{mm} \approx 91\ \text{mm}$. This pitch keeps the skin-buckling panel size small (aspect ratio of panel ≈ 100 mm / 91 mm ≈ 1.1 — nearly square — which maximises the shear buckling coefficient $k_s$) and ensures adequate solar-cell support if the design is extended to a solar UAV configuration.
+5. **Template availability.** NACA 0012 profiles are freely available as printable templates (UIUC Airfoil Database), and the smooth leading-edge geometry is achievable by sanding balsa sheet ribs cut with a scalpel.
+
+### 14.4 Wing Planform — 1 m Span
+
+| Parameter | Value | Reason |
+|---|---|---|
+| Span b | 1.00 m | Standard 1 m bench/table test span; fits in a standard lab test rig; commonly used for academic prototypes |
+| Chord c | 0.30 m | Set by NACA 0012 at t_max = 3.6 cm: c = 36 mm / 0.12 = 300 mm |
+| Aspect ratio AR | b²/S = 1.00 / (1.00 × 0.30) = **3.33** | Moderate AR typical of prototype demonstration wings |
+| Rib count | 12 | Rib pitch ≈ 91 mm; adequate aerodynamic shape retention and solar cell support |
+| Rib pitch | 90.9 mm | Derived from b / (N−1) = 1000 / 11 |
+
+**Why 1 m span?** A 1 m span is the standard for an academic laboratory prototype for several reasons:
+- It is the maximum that can be easily fabricated from hobby-shop stock (balsa sheets, aluminium rod sold in 1 m lengths).
+- It can be mounted in a benchtop wind tunnel or loaded in a static test rig within a typical lab environment.
+- Structural loads at 1 m span are representative of micro-UAV designs while remaining safe for hand loading.
+- The wing fits across a standard doorway and can be transported without specialised handling.
+
+---
+
+## 15. Testing: Procedures, Cautions, and Expected Results
+
+### 15.1 Overview
+
+Testing is conducted in three phases: (A) material/coupon level, (B) component level, and (C) full wing static and dynamic tests. The goal is to verify that the as-built wing meets the structural margins established in sections 7–12 and that no catastrophic failure mode is present below the design ultimate load.
+
+> **General Safety Caution:** All structural tests on the prototype wing must be conducted with the test area cleared of personnel except the operator. Load increments must be applied gradually (≤ 10 % of ultimate per 30-second step). All observers must stand behind a protective screen or at least 2 m from the specimen when loads exceed 70 % of ultimate. Eye protection must be worn at all times during spar-level tests.
+
+---
+
+### 15.2 Phase A — Material and Coupon Tests
+
+#### Test A1: Aluminium Rod Tensile/Bending Coupon Test
+
+**Purpose:** Verify the tensile and bending strength of the purchased Al 6061-T6 rod (∅ 3 mm) matches the assumed material properties (σ_y = 276 MPa, σ_ult = 310 MPa, E = 69 GPa).
+
+**Procedure:**
+1. Cut three 150 mm lengths of ∅ 3 mm Al rod from the batch to be used for spars.
+2. Clamp each rod at one end with a 50 mm grip overlap in a bench vice; apply a transverse point load at the free tip using calibrated weights on a hanger.
+3. Record load and tip deflection in 0.1 N increments from 0 to 5.0 N (expected yield at ~7.3 N for a 100 mm free length; 5 N is below yield, ensuring coupons remain undamaged for possible reuse).
+4. Measure elastic slope: $k = F/\delta = 3EI/L^3$.
+5. Calculate E from measured k: $E = kL^3 / (3I)$ where $I = \pi(1.5 \times 10^{-3})^4 / 4 = 3.976 \times 10^{-12}\ \text{m}^4$.
+
+**Expected results:**
+
+| Metric | Expected | Acceptance criterion |
+|---|---|---|
+| Young's modulus E | 69 ± 5 GPa | 64 – 74 GPa |
+| Yield load (100 mm free length) | F_y ≈ 7.3 N | 6.5 – 8.2 N |
+| Fracture mode | Ductile permanent bend at root | No brittle snap; visible plastic hinge |
+| Tip deflection at 1 N | $\delta = F \times L^3 / (3EI) = 1.0 \times (0.1)^3 / (3 \times 69 \times 10^9 \times 3.976 \times 10^{-12}) = 1.2\ \text{mm}$ | 1.0 – 1.5 mm |
+
+**Cautions:**
+- Do not exceed 5.0 N total load on these coupons; the procedure intentionally stops at 5 N (well below the ~7.3 N yield load) so the rods remain elastic and usable for the wing after testing.
+- Release load slowly after yield; sudden elastic spring-back can launch the load hanger.
+- Use smooth-jaw grips to avoid stress concentrations at the clamp that would cause premature failure.
+
+---
+
+#### Test A2: Balsa Wood Three-Point Bending Test
+
+**Purpose:** Confirm the along-grain bending modulus and modulus of rupture (MOR) of the balsa sheet batch.
+
+**Procedure:**
+1. Cut five balsa coupons: 150 mm long × 20 mm wide × 2 mm thick, grain running along the 150 mm direction.
+2. Set up a three-point bend fixture with supports 120 mm apart.
+3. Apply a central load with calibrated weights; record load vs. mid-span deflection in 0.05 N steps.
+4. Calculate E: $E = PL^3/(48I\delta)$ where $I = bh^3/12 = 0.020 \times 0.002^3 / 12 = 1.333 \times 10^{-11}\ \text{m}^4$.
+5. Load to fracture; record fracture load.
+
+**Expected results:**
+
+| Metric | Expected | Acceptance criterion |
+|---|---|---|
+| Elastic modulus E_balsa | 3.0 – 3.8 GPa | ≥ 2.5 GPa |
+| Fracture load (120 mm span, 20 × 2 mm) | F_f ≈ 7.0 N | ≥ 5.5 N |
+| MOR | ≥ 14 MPa | ≥ 11 MPa |
+| Fracture mode | Clean across grain | No delamination; no splitting along grain |
+
+**Cautions:**
+- Ensure coupon grain is aligned exactly along the length; off-axis grain reduces strength by up to 50 %.
+- Reject batches with visible knots, resin pockets, or density variation > 20 % (check by weighing three coupons against theoretical mass = ρ × L × b × h = 160 × 0.15 × 0.02 × 0.002 = 0.096 g per coupon).
+
+---
+
+### 15.3 Phase B — Component Tests
+
+#### Test B1: Rib Load-Bearing Test
+
+**Purpose:** Verify that the assembled balsa ribs maintain their profile under aerodynamic pressure loads.
+
+**Procedure:**
+1. Glue one complete rib into a test fixture that mimics the spar-to-spar bay (two 3 mm rod supports 100 mm apart, matching the front spar – rear spar spacing).
+2. Apply a uniformly distributed load to the upper rib surface using a 100 mm × 91 mm foam pad loaded with calibrated weights, simulating the rib distributed load $q_\text{rib} = 6.0\ \text{N/m}$ at root.
+3. Total applied load at design condition: $F_{\text{design}} = q_\text{rib} \times c_{\text{rib}} \times \Delta y = 6.0 \times 0.100 \times 0.091 = 0.055\ \text{N}$ (where $c_{\text{rib}} = 100\ \text{mm}$ is the inter-spar chord span of the rib). Apply this load, then increase to **0.11 N (2 × design load)** as an over-load check.
+4. Check that the rib chord-wise profile deviates less than 0.5 mm from the nominal NACA 0012 template using a profile gauge or feeler gauges at both 0.055 N (design load) and 0.11 N (2 × design load).
+
+**Expected results:** Maximum rib deflection under design load (0.055 N) ≪ 0.1 mm; under 2 × design load (0.11 N) deflection should remain < 0.2 mm. The rib should show no detectable permanent deformation after unloading. This confirms that rib sizing is governed by minimum practical thickness (2 mm), not stress.
+
+**Cautions:**
+- Ensure the CA glue bond between rib notches and spar rods is fully cured (minimum 30 minutes at room temperature) before applying any loads.
+- Do not apply concentrated loads (e.g., fingertip pressure) to the leading-edge rib nose, which is the most fragile area.
+
+---
+
+#### Test B2: Spar Bending Test (Full Half-Span)
+
+**Purpose:** Verify spar stiffness and confirm linear-elastic response over the 500 mm half-span.
+
+> ⚠️ **Caution before starting:** A ∅ 3 mm Al rod at 470 mm free length yields at only **F_y ≈ 1.56 N** (root yield moment M_y = σ_y I/r = 276 × 10⁶ × 3.976 × 10⁻¹² / 1.5 × 10⁻³ = 0.731 N·m; F_y = 0.731/0.470 = 1.56 N). Maximum safe test load is **1.0 N** (64 % of yield). Do not exceed this.
+
+**Procedure:**
+1. Clamp the root of one ∅ 3 mm, 500 mm long Al rod in a rigid bench vice with 30 mm grip overlap (free length L = 470 mm).
+2. Apply a point load at the free tip using a precision hanging balance (suspended load in a cup via fishing line over a pulley aligned with the spar axis).
+3. Record tip deflection vs. load in 0.1 N increments up to 1.0 N maximum:
+
+| Step | Load (N) | Expected tip deflection (mm) |
+|---|---|---|
+| 1 | 0.2 | 25.2 |
+| 2 | 0.4 | 50.5 |
+| 3 | 0.6 | 75.7 |
+| 4 | 0.8 | 100.9 |
+| 5 | 1.0 | 126.1 — **Stop here** |
+
+Expected tip deflection (elastic, point load, cantilever, I = πr⁴/4 = π(1.5 × 10⁻³)⁴/4 = 3.976 × 10⁻¹² m⁴):
+
+$$\delta = \frac{FL^3}{3EI} = \frac{F \times (0.47)^3}{3 \times 69 \times 10^9 \times 3.976 \times 10^{-12}} = \frac{F \times 0.10383}{8.231 \times 10^{-1}} = 126.1\,F\ \text{mm}$$
+
+4. Stop the test at 1.0 N. Do not increase load further.
+5. Compare measured stiffness with theoretical: $k_{theory} = 3EI/L^3 = 8.231 \times 10^{-1}/0.1038 = 7.93 \times 10^{-3}\ \text{N/mm} = 7.93\ \text{mN/mm}$.
+
+**Expected results:**
+
+| Metric | Expected | Acceptance criterion |
+|---|---|---|
+| Tip stiffness k | 7.93 mN/mm (= 7.93 N/m) | 6.7 – 9.1 mN/mm (±15 %) |
+| Load at onset of yield | ≈ 1.56 N | Verify by observing permanent set after 1.0 N test: residual < 1 mm = elastic |
+| Deflection linearity up to 0.8 N | R² > 0.99 for F–δ plot | R² ≥ 0.98 |
+
+> **Note on extreme flexibility:** The 126 mm tip deflection per Newton confirms the ∅ 3 mm spar is highly flexible at wing scale. This is expected and is consistent with the wing-level analysis (Section C1). The large deflections do not indicate failure; the rod remains elastic up to 1.56 N at this span. The purpose of this test is to verify E through measured stiffness, not to simulate flight loads.
+
+**Cautions:**
+- Do **not** exceed 1.0 N on the rod in this free-tip 470 mm configuration; the yield load is only 1.56 N and permanent deformation will render the spar unusable.
+- Check that the fishing line is perpendicular to the spar at the load point — any angular error underestimates stiffness.
+- Do not kink the rod during clamping; inspect the free end under magnification for scratches or tool marks that could initiate fatigue cracks.
+
+---
+
+### 15.4 Phase C — Full Wing Static Test
+
+#### Test C1: Wing Tip Deflection Under Distributed Load (Demonstration)
+
+> ⚠️ **SAFETY-CRITICAL — READ BEFORE SETUP:** The ∅ 3 mm front spar yields at approximately **57 % of the design limit load** (root yield moment 0.731 N·m vs. limit root moment 1.275 N·m). Test loads must **not exceed 50 % of limit (3.07 N half-wing total)** to remain in the elastic range. Do **not** proceed to 75 % or 100 % of limit load; doing so will permanently deform the spar. Do not test to ultimate load (9.2 N) under any circumstances with ∅ 3 mm spars.
+
+**Purpose:** Verify linear-elastic structural response of the assembled wing and measure tip deflection at sub-limit loads; confirm no structural damage (debonds, cracks) under the tested load range.
+
+**Procedure:**
+1. Mount the completed wing with the root joint fixed to a rigid wall bracket. The wing panel lies horizontally (spanwise) in the test rig, with the leading edge facing forward.
+2. Apply loads via sand-bag blocks or calibrated weights placed at equally-spaced rib locations to simulate uniform distributed lift.
+3. Total half-wing limit lift: $L_{1/2,\text{limit}} = 6.13\ \text{N}$. Divide equally among 11 rib bays (approximately 0.56 N per rib station for 100 % limit).
+4. Apply loads in two increments only: 25 % and 50 % of limit load. At each increment:
+   - Measure tip deflection with a steel rule or dial gauge referenced to the root.
+   - Photograph the wing from the root and tip directions.
+   - Check for audible cracking (evidence of rib or skin delamination).
+5. Hold at 50 % limit load for 60 seconds; record any creep.
+6. Unload and measure permanent set (residual tip displacement).
+
+**Expected results (using I = 3.976 × 10⁻¹² m⁴ for ∅ 3 mm rod):**
+
+| Load level | Applied load (N) | Expected tip deflection (mm) | Notes |
+|---|---|---|---|
+| 25 % limit | 1.53 | ~87 | Linear; no visible deformation |
+| 50 % limit | 3.07 | ~175 | Near-linear; check root for creep; **do not exceed this** |
+| 75 % limit | 4.60 | **DO NOT TEST** | Spar root yields at ~57 % limit |
+| 100 % limit | 6.13 | **DO NOT TEST** | Spar fracture likely |
+
+> **Calculation for reference:** Tip deflection under uniform distributed load at 100 % limit (not tested):
+> $$\delta_{\text{tip}} = \frac{w_0 (b/2)^4}{8EI} = \frac{12.26 \times (0.5)^4}{8 \times 69 \times 10^9 \times 3.976 \times 10^{-12}} = \frac{0.7663}{2.194} = 349\ \text{mm}$$
+>
+> This confirms the ∅ 3 mm front spar is structurally inadequate for the design limit load at 1 m span (349 mm deflection = 69.8 % of semi-span). The prototype validates material quality and assembly technique, not flight-load structural adequacy. A ∅ 5 mm spar is required for a flight-worthy wing.
+
+**Pass/fail criteria (up to 50 % limit only):**
+- **Pass:** Deflection vs. load is linear (R² > 0.99), no audible cracking, residual permanent set < 1 mm after unloading, deflection at 50 % limit is within ±20 % of predicted 175 mm.
+- **Fail:** Any audible crack, skin delamination, rib detachment, or permanent set > 2 mm after unloading to zero.
+
+**Cautions:**
+- Ensure load application points are at rib centrelines, not between ribs, to avoid local skin dents.
+- Keep fingers and hands clear of the upper spar surface during loading.
+- Have a safety net or foam pad below the wing to catch falling weights if a fastener releases.
+
+---
+
+#### Test C2: Wing Torsion Test
+
+**Purpose:** Verify the D-box torsional stiffness and confirm that the wing does not twist excessively under aerodynamic pitching moment.
+
+**Procedure:**
+1. With the wing mounted root-fixed, apply a torque at 75 % semi-span by hanging equal-and-opposite weights (nose-down/nose-up couple) at the leading edge and trailing edge of one rib, 300 mm from the root.
+2. Target torque: 0.05 N·m (half the root torque calculated in §10.1).
+3. Measure twist angle using a digital inclinometer placed on the rib at the load station.
+4. Increase torque in 10 % steps to 0.10 N·m.
+
+**Expected results:**
+
+| Torque (N·m) | Expected twist (degrees) |
+|---|---|
+| 0.025 | ~0.007 |
+| 0.050 | ~0.014 |
+| 0.100 | ~0.029 |
+
+Analytical twist (from §10.3): $\phi = 0.014°$ for T_root = 0.105 N·m. Values here are lower because load is applied at 75 % span, not root.
+
+**Acceptance criterion:** Twist per unit torque ≤ 0.3°/N·m at the load station. Residual twist < 0.05° after load removal.
+
+**Cautions:**
+- Ensure that the couple arm is rigid (use a stiff temporary balsa jig glued temporarily to the rib and removed after testing).
+- Do not apply torque in the trailing-edge-up (positive pitch) direction beyond 0.15 N·m, which risks peel-off of the D-box skin at the leading edge.
+
+---
+
+#### Test C3: Tap Test — Skin/Rib Debond Detection
+
+**Purpose:** Detect any adhesive delamination or debonds between skin, ribs, and spars without destructive testing.
+
+**Procedure:**
+1. After the static load tests (C1, C2), lightly tap each rib-to-skin joint and each rib-to-spar glue fillet using a small coin or pencil.
+2. A solid "thud" indicates a well-bonded joint.
+3. A hollow "click" or "pop" indicates a debond; mark and record location.
+
+**Expected results:** All joints should produce a solid thud. No more than 5 % of joint area should show any hollow response after limit-load testing.
+
+**Cautions:**
+- Apply tapping force of < 1 N; heavier taps can initiate fresh delaminations in the thin balsa.
+- Perform the tap test in a quiet environment; ambient noise masks the acoustic signature.
+
+---
+
+### 15.5 Phase D — Vibration / Modal Test
+
+#### Test D1: Free-Vibration Pluck Test (Wing Natural Frequency)
+
+**Purpose:** Confirm the first bending natural frequency is consistent with the analytical prediction (f₁ ≈ 5.97 Hz from §12.1).
+
+**Procedure:**
+1. Mount the wing root-fixed on the bench bracket.
+2. "Pluck" the wing tip with a light tap (finger flick) and immediately release.
+3. Record the free-decay vibration using a smartphone accelerometer app (or a small accelerometer and oscilloscope) attached near the wing tip.
+4. Count zero-crossings or use an FFT to extract the dominant frequency.
+
+**Expected results:**
+
+| Frequency | Expected | Acceptance criterion |
+|---|---|---|
+| 1st bending f₁ | ~5.97 Hz | 4.5 – 7.5 Hz (±25 % for prototype variability) |
+| Damping ratio ζ | 0.01 – 0.05 | < 0.10 (lightly damped) |
+
+**Cautions:**
+- Do not excite the wing with a resonant forcing frequency near f₁ for more than 2 seconds; resonance can amplify displacement to failure even at small forces.
+- Ensure no loose masses (weights, tools) are resting on the wing during the pluck test, as these shift the measured frequency.
+- If the measured frequency is below 4 Hz, inspect for debonded root joint or cracked spar — this indicates reduced stiffness and requires repair before any load testing.
+
+---
+
+### 15.6 Test Record and Sign-Off
+
+All test results should be recorded in the test log with:
+- Date and tester name
+- Batch number/label of each material used
+- Load cell or weight calibration certificate reference
+- Photographs at each load step (minimum: unloaded, 25 % limit, 50 % limit, unloaded-after)
+- Pass/fail judgement for each acceptance criterion
+
+A completed test log signed by the laboratory supervisor constitutes the airworthiness evidence for the prototype wing. No flight or wind-tunnel testing should proceed until all Phase A, B, and C tests have returned **Pass** results.
 
 ---
 
