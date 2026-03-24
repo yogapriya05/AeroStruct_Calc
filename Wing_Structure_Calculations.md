@@ -1,5 +1,5 @@
 # Wing Structure Design Calculations
-## Solar UAV Wing — AE322 / AE341 Group 2, IIST
+## Solar UAV Wing — AE322 / AE341 Group 2, IIST | Academic Year 2025–26
 
 ---
 
