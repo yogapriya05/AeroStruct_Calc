@@ -17,6 +17,7 @@
 \usepackage{tabularx}
 % \usepackage{microtype}
 \usepackage{pifont}
+\usepackage{appendix}
 \usepackage{textcomp}
 \usepackage{pdflscape}
 \newcommand{\cmark}{\ding{51}}
@@ -881,28 +882,21 @@ The inertia relief reduces the root bending moment by \textbf{~30 \%} relative t
 
 \subsection{Bending moment M(y) --- ultimate loads}
 
-
 The bending moment at station y (root most critical, M is positive for upward bending = tension on lower surface):
-
 \[
 M(y) = \int_y^{b/2} w(\xi)(\xi - y)\, d\xi
 \]
 
 For the elliptical distribution, the moment at the root (y = 0) is:
-
 \[
 M_{\text{root}} = \int_0^{b/2} w(\xi)\, \xi\, d\xi = w_{\text{root}} \int_0^{b/2} \xi\sqrt{1 - \left(\frac{\xi}{b/2}\right)^2}\, d\xi
 \]
 
 Let ${\eta}$ = $\xi$/(b/2):
-
-\[
-M_{\text{root}} = w_{\text{root}} (b/2)^2 \int_0^{1} \eta\sqrt{1-\eta^2}\, d\eta = w_{\text{root}} (b/2)^2 \times \frac{1}{3}
-\]
-
-\[
-M_{\text{root}} = 23.91 \times (0.490)^2 \times \frac{1}{3} = 23.91 \times 0.2401 \times 0.3333 = 1.913\ \text{N}\cdot\text{m}
-\]
+\begin{align*}
+M_{\text{root}} &= w_{\text{root}} (b/2)^2 \int_0^{1} \eta\sqrt{1-\eta^2}\, d\eta = w_{\text{root}} (b/2)^2 \times \frac{1}{3}\\
+M_{\text{root}} &= 23.91 \times (0.490)^2 \times \frac{1}{3} = 23.91 \times 0.2401 \times 0.3333 = 1.913\ \text{N}\cdot\text{m}
+\end{align*}
 
 Cross-check with centroid of load:
 
@@ -911,13 +905,11 @@ Cross-check with centroid of load:
 \]
 
 For uniform distribution (conservative check):
-
 \[
 M_{\text{root,uniform}} = \frac{w_0\, (b/2)^2}{2} = \frac{18.78 \times 0.490^2}{2} = \frac{18.78 \times 0.2401}{2} = 2.253\ \text{N}\cdot\text{m}
 \]
 
 \textbf{Design bending moment at root (ultimate):}
-
 \[
 \boxed{M_{\text{root,ult}} = 1.913\ \text{N}\cdot\text{m} \quad \text{(elliptical)}}
 \]
@@ -925,7 +917,6 @@ M_{\text{root,uniform}} = \frac{w_0\, (b/2)^2}{2} = \frac{18.78 \times 0.490^2}{
 Use $M_{\text{design}} = 2.25\ \text{N}\cdot\text{m}$ (uniform, 18\% higher) for a conservative design.
 
 Bending moment at intermediate stations (elliptical):
-
 \[
 M(y) = w_{\text{root}} \frac{(b/2)^2}{3}\left(1 - \frac{3}{2}\left(\frac{y}{b/2}\right)^2 + \frac{1}{2}\left(\frac{y}{b/2}\right)^3\right)\ \text{(approx.)}
 \]
@@ -961,26 +952,17 @@ y (m) & ${\eta}$ = y/(b/2) & M(y) (N${\cdot}$m) \\
 
 \subsection{Section modulus requirement}
 
-
 The main spar carries approximately 90\% of the bending moment (as established for high-AR sailplane-style wings; Noth IDR):
 
 \[
 M_{spar} = 0.90 \times M_{\text{design}} = 0.90 \times 2.25 = 2.025\ \text{N}\cdot\text{m}
 \]
 
-
-
-
-
-
 \newpage \section{Main Spar (Front Spar) Sizing}
-
 
 The main spar is a \textbf{solid circular aluminium rod} (Al 6061-T6).
 
-
 \subsection{Material properties --- Al 6061-T6}
-
 
 \begin{center}
 \begin{tabular}{|l|l|l|}
@@ -1004,40 +986,29 @@ Allowable shear stress (= 0.577 ${\times}$ ${\sigma}$\_y) & ${\tau}$\_allow & 0.
 \end{tabular}
 \end{center}
 
-
 \subsection{Minimum spar radius from bending}
-
 
 Solid circular rod, bending about a diameter.  
 Section modulus: $Z = I/y = (\pi r^4/4)/r = \pi r^3/4$
 
-\[
-\sigma = \frac{M}{Z} = \frac{4M}{\pi r^3} \leq \sigma_{\text{allow}}
-\]
-
-\[
-r^3 \geq \frac{4 M_{spar}}{\pi \sigma_{\text{allow}}} = \frac{4 \times 2.025}{\pi \times 206.7 \times 10^6} = \frac{8.10}{649.1 \times 10^6} = 1.248 \times 10^{-8}\ \text{m}^3
-\]
-
-\[
-r \geq (1.248 \times 10^{-8})^{1/3} = 2.32 \times 10^{-3}\ \text{m} = 2.32\ \text{mm}
-\]
+\begin{align*}
+\sigma &= \frac{M}{Z} = \frac{4M}{\pi r^3} \leq \sigma_{\text{allow}}\\
+r^3 &\geq \frac{4 M_{spar}}{\pi \sigma_{\text{allow}}} = \frac{4 \times 2.025}{\pi \times 206.7 \times 10^6} = \frac{8.10}{649.1 \times 10^6} = 1.248 \times 10^{-8}\ \text{m}^3 \\
+r &\geq (1.248 \times 10^{-8})^{1/3} = 2.32 \times 10^{-3}\ \text{m} = 2.32\ \text{mm} \\
+\end{align*}
 
 Minimum diameter: $d_{\min} = 2 \times 2.32 = 4.64\ \text{mm}$
 
-**Select standard rod: $d_{FS} = 5\ \text{mm}$, $r_{FS} = 2.5\ \text{mm}$**
+We select a standard rod: $d_{FS} = 5\ \text{mm}$, $r_{FS} = 2.5\ \text{mm}$
 
 Actual peak bending stress:
-
 \[
 \sigma_{FS} = \frac{4 \times 2.025}{\pi \times (2.5 \times 10^{-3})^3} = \frac{8.10}{\pi \times 1.5625 \times 10^{-8}} = \frac{8.10}{4.909 \times 10^{-8}} = 165.0\ \text{MPa}
 \]
 
 Margin of safety: $MS = \sigma_{\text{allow}}/\sigma_{FS} - 1 = 206.7/165.0 - 1 = +0.25$ $\checkmark $
 
-
 \subsection{Shear check on main spar}
-
 
 Maximum transverse shear at root:
 
@@ -1047,17 +1018,18 @@ V_{\text{root,ult}} = 9.20\ \text{N}
 
 For solid circular section, maximum shear stress:
 
-\[
-\tau_{\max} = \frac{4V}{3A} = \frac{4 \times 9.20}{3 \times \pi (2.5 \times 10^{-3})^2} = \frac{36.80}{3 \times \pi \times 6.25 \times 10^{-6}} = \frac{36.80}{58.90 \times 10^{-6}} = 0.625\ \text{MPa}
-\]
-
-\[
-\tau_{\max} \ll \tau_{\text{allow}} = 159.2\ \text{MPa} \quad (\text{shear is not critical})
-\]
-
+\begin{align*}
+\tau_{\max} &= \frac{4V}{3A} \\
+&= \frac{4 \times 9.20}{3 \times \pi (2.5 \times 10^{-3})^2} \\
+&= \frac{36.80}{3 \times \pi \times 6.25 \times 10^{-6}} \\
+&= \frac{36.80}{58.905 \times 10^{-6}} \\
+&= 0.625\ \text{MPa} \\
+\\
+\tau_{\max} &\ll \tau_{\text{allow}} = 159.2\ \text{MPa} 
+\quad (\text{shear is not critical})
+\end{align*}
 
 \subsection{Spar deflection at tip}
-
 
 Beam equation for cantilever with elliptical distributed load. The tip deflection for a uniform load (conservative):
 
@@ -1067,17 +1039,17 @@ Beam equation for cantilever with elliptical distributed load. The tip deflectio
 
 Second moment of area:
 
-\[
-I_{FS} = \frac{\pi r^4}{4} = \frac{\pi (2.5 \times 10^{-3})^4}{4} = \frac{\pi \times 3.906 \times 10^{-11}}{4} = 3.068 \times 10^{-11}\ \text{m}^4
-\]
-
-\[
-\delta_{\text{tip}} = \frac{18.78 \times (0.490)^4}{8 \times 69 \times 10^9 \times 3.068 \times 10^{-11}}
-\]
-
-\[
-= \frac{18.78 \times 0.05765}{8 \times 2.117 \times 10^{-3}} = \frac{1.0826}{1.6934 \times 10^{-2}} = 63.9\ \text{mm}
-\]
+\begin{align*}
+I_{FS} &= \frac{\pi r^4}{4} \\
+&= \frac{\pi (2.5 \times 10^{-3})^4}{4} \\
+&= \frac{\pi \times 3.90625 \times 10^{-11}}{4} \\
+&= 3.068 \times 10^{-11}\ \text{m}^4 \\
+\\
+\delta_{\text{tip}} &= \frac{18.78 \times (0.490)^4}{8 \times 69 \times 10^9 \times 3.068 \times 10^{-11}} \\
+&= \frac{18.78 \times 0.05765}{8 \times 2.117 \times 10^{-3}} \\
+&= \frac{1.0826}{1.6936 \times 10^{-2}} \\
+&= 0.0639\ \text{m} = 63.9\ \text{mm}
+\end{align*}
 
 This deflection (${\approx}$ 6.5 \% of semi-span) is high for a 5 mm rod. It is acceptable for a flexible solar UAV wing but confirms the need for careful aeroelastic assessment. The deflection under limit loads (n = 2.5, before FOS):
 
@@ -1086,18 +1058,15 @@ $$\delta\_{\text{tip,limit}} = \frac{63.9}{FOS} = \frac{63.9}{1.5} = 42.6\ \text
 This is within the typical 5\% limit for flexible UAV wings.
 
 \subsection{Spar mass}
-
-\[
-m_{FS} = \rho_{Al} \times A_{FS} \times b/2 = 2700 \times \pi (2.5 \times 10^{-3})^2 \times 0.490
-\]
-
-\[
-= 2700 \times 1.963 \times 10^{-5} \times 0.490 = 2700 \times 9.619 \times 10^{-6} = 25.97\ \text{g}\ \text{per half-spar}
-\]
-
-\[
-m_{FS,\text{total}} = 2 \times 25.97 = 51.9\ \text{g}
-\]
+\begin{align*}
+m_{FS} &= \rho_{Al} \, A_{FS} \, \frac{b}{2} \\
+&= 2700 \times \pi (2.5 \times 10^{-3})^2 \times 0.490 \\
+&= 2700 \times 1.9635 \times 10^{-5} \times 0.490 \\
+&= 2700 \times 9.621 \times 10^{-6} \\
+&= 0.02598\ \text{kg} = 25.98\ \text{g} \quad \text{(per half-spar)} \\
+\\
+m_{FS,\text{total}} &= 2 \times 25.98 = 51.96\ \text{g}
+\end{align*}
 
 \begin{figure}[H]
     \centering
@@ -1109,13 +1078,11 @@ m_{FS,\text{total}} = 2 \times 25.97 = 51.9\ \text{g}
 \newpage \section{Rear Spar Sizing}
 
 The rear spar carries approximately 10\% of the bending moment and handles hinge loads from the ailerons plus torsion.
-
 \[
 M_{RS} = 0.10 \times 2.25 = 0.225\ \text{N}\cdot\text{m}
 \]
 
 \textbf{Minimum radius:}
-
 \[
 r_{RS} \geq \left(\frac{4 \times 0.225}{\pi \times 206.7 \times 10^6}\right)^{1/3} = \left(\frac{0.900}{649.1 \times 10^6}\right)^{1/3} = (1.386 \times 10^{-9})^{1/3} = 1.115 \times 10^{-3}\ \text{m} = 1.12\ \text{mm}
 \]
@@ -1123,7 +1090,6 @@ r_{RS} \geq \left(\frac{4 \times 0.225}{\pi \times 206.7 \times 10^6}\right)^{1/
 Select **standard rod: $d_{RS} = 3\ \text{mm}$, $r_{RS} = 1.5\ \text{mm}$** (nearest standard size above minimum).
 
 Actual stress:
-
 \[
 \sigma_{RS} = \frac{4 \times 0.225}{\pi (1.5 \times 10^{-3})^3} = \frac{0.900}{\pi \times 3.375 \times 10^{-9}} = \frac{0.900}{1.060 \times 10^{-8}} = 84.9\ \text{MPa}
 \]
@@ -1131,55 +1097,39 @@ Actual stress:
 Margin: $MS = 206.7/84.9 - 1 = +1.43$ $\checkmark $ (well within limits, but 3 mm is the minimum practical rod size)
 
 \textbf{Rear spar mass:}
-
 \[
 m_{RS,\text{total}} = 2 \times 2700 \times \pi (1.5 \times 10^{-3})^2 \times 0.490 = 2 \times 2700 \times 7.069 \times 10^{-6} \times 0.490 = 18.74\ \text{g}
 \]
 
-
-
-
-
-
 \newpage \section{Rib Design and Spacing}
 
-
-
 \subsection{Number of ribs and spacing}
-
 
 Ribs prevent local skin buckling and maintain the airfoil shape (especially critical for solar-cell adhesion on the flat upper surface).
 
 Total ribs:
-
 \[
 N_{\text{ribs}} = 40 \quad \text{(per design brief)}
 \]
 
 Rib pitch (uniform):
-
 \[
 \Delta y = \frac{b}{N_{\text{ribs}} - 1} = \frac{980}{39} \approx 25.1\ \text{mm}
 \]
 
 Ribs are placed at: $y_i = (i-1) \times 25.1\ \text{mm}$, for $i = 1, 2, \ldots, 40$.
 
-
 \subsection{Rib load}
 
-
 Each rib distributes the aerodynamic load from the skin to the spars. The rib carries the distributed load over one rib bay:
-
 \[
 F_{\text{rib}}(y_i) = w(y_i) \times \Delta y
 \]
 
 At root (maximum):
-
 \[
 F_{\text{rib,root}} = w(0) \times \Delta y = 23.91\ \text{N/m} \times 0.0251\ \text{m} = 0.600\ \text{N (per rib at root)}
 \]
-
 
 \subsection{Rib as a simply-supported beam}
 
@@ -2507,13 +2457,7 @@ Damping ratio $\zeta$ & 0.01 -- 0.05 & < 0.10 (lightly damped) \\
 \item If the measured frequency is below 4 Hz, inspect for debonded root joint or cracked spar --- this indicates reduced stiffness and requires repair before any load testing.
 \end{itemize}
 
-
-
-
-
-
 \subsection{Test Record and Sign-Off}
-
 
 All test results should be recorded in the test log with:
 \begin{itemize}[noitemsep,topsep=2pt]
@@ -2526,7 +2470,10 @@ All test results should be recorded in the test log with:
 
 A completed test log signed by the laboratory supervisor constitutes the airworthiness evidence for the prototype wing. No flight or wind-tunnel testing should proceed until all Phase A, B, and C tests have returned \textbf{Pass} results.
 
-\newpage \section{Appendix A --- Material Properties Summary}
+\newpage 
+
+\appendix
+\section{Appendix A --- Material Properties Summary}
 
 \begin{center}
 \renewcommand{\arraystretch}{1.2}
@@ -2577,7 +2524,7 @@ Torsional stiffness & Open section & \textbf{Closed D-box} (Bredt--Batho) & Lead
 This appendix provides reference analysis of the \textbf{full-scale Sky-Sailor solar UAV} (3.2 m span, André Noth, ETH Zürich, 2008). It serves as a design benchmark and shows how the scale model relates to the full-scale design.
 
 
-\subsection{C.1 Full-Scale Wing Parameters}
+\subsection{Full-Scale Wing Parameters}
 
 
 \begin{center}
@@ -2635,7 +2582,7 @@ K_g = \frac{0.88 \times 3.790}{5.3 + 3.790} = \frac{3.335}{9.090} = 0.367
 Design load factor: \textbf{n = 3.5} (FAR 23 manoeuvre limit governs after alleviation).
 
 
-\subsection{C.2 Full-Scale Structural Loads}
+\subsection{Full-Scale Structural Loads}
 
 
 \textbf{Inertia-relieved net load per semi-span (n = 3.5):}
@@ -2673,7 +2620,7 @@ Root lift per unit span l$_{0}$ (elliptical) & 33.37 N/m \\
 \end{center}
 
 
-\subsection{C.3 Full-Scale Main Spar (CFRP I-Beam)}
+\subsection{Full-Scale Main Spar (CFRP I-Beam)}
 
 
 The full-scale spar is a carbon-fibre-reinforced polymer (CFRP) I-section, replacing the aluminium rod used in the scale prototype.
@@ -2739,7 +2686,7 @@ Total main spar (per semi-span): 87.7 g\\
 Comparison with Noth data: total half-wing (including skin, ribs, solar cells, servos) = 161.6 g. Spar mass = 87.7 g ${\approx}$ \textbf{54 \% of half-wing mass} --- consistent with a spar-dominated construction.
 
 
-\subsection{C.4 Full-Scale Rear Spar (CFRP Tube)}
+\subsection{Full-Scale Rear Spar (CFRP Tube)}
 
 Location: 65; chord = 162.5 mm from LE\\
 Airfoil thickness at 65\(\%\) chord \(\approx\) 6\(\%\): t\(_\text{rear}\) = 0.06 x 250 = 15.0 mm\\
@@ -2764,7 +2711,7 @@ M_{\text{RS,root}} = \Delta L_{\text{aileron}} \times \bar{y}_{\text{aileron}} =
 \]
 
 
-\subsection{C.5 Full-Scale Natural Frequencies}
+\subsection{Full-Scale Natural Frequencies}
 
 \begin{center}
 \renewcommand{\arraystretch}{1.3}
@@ -2781,7 +2728,7 @@ $f_T / f_B$ & $18.6 / 7.6 = 2.45$ & Flutter coupling not expected $\checkmark$ \
 \end{tabularx}
 \end{center}
 
-\subsection{C.6 Full-Scale Aeroelastic Margins}
+\subsection{Full-Scale Aeroelastic Margins}
 
 \begin{center}
 \renewcommand{\arraystretch}{1.2}
@@ -2800,7 +2747,7 @@ Tip deflection at $n = 3.5$ & 22.9 mm (1.43 \% of semi-span) & $< 5\%$ semi-span
 \end{tabularx}
 \end{center}
 
-\subsection{C.7 Comparison: Full-Scale vs Scale Prototype}
+\subsection{Comparison: Full-Scale vs Scale Prototype}
 
 \begin{center}
 \begin{tabular}{|l|l|l|}
@@ -2835,11 +2782,6 @@ Wing mass (per half) & ~101.5 g (full structure) & ~50 g (estimated) \\
 \hline
 \end{tabular}
 \end{center}
-
-
-
-
-
 
 \begin{thebibliography}{99}
 
