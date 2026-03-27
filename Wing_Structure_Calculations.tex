@@ -34,7 +34,7 @@ Group~2, IIST}
 \tableofcontents
 \newpage
 
-\section{Introduction and Use Case}
+\newpage \section{Introduction and Use Case}
 
 The aircraft is a \textbf{solar-powered UAV} designed for \textbf{continuous, long-endurance flight} (24 h+), scaled from the Sky-Sailor design methodology (Noth \& Siegwart, ETH 2008). The mission profile drives every structural choice:
 
@@ -85,7 +85,7 @@ Our design is a \textbf{geometrically scaled-down} laboratory wing/prototype usi
 
 
 
-\section{Wing Geometry and Airfoil Parameters}
+\newpage \section{Wing Geometry and Airfoil Parameters}
 
 \subsection{Wing planform}
 
@@ -222,7 +222,7 @@ Upper/lower skin & FS to RS (inter-spar bay) & --- & Aluminium sheet (or film) \
 
 
 
-\section{Mass Estimation and Assumptions}
+\newpage \section{Mass Estimation and Assumptions}
 
 \subsection{Assumptions}
 
@@ -232,15 +232,15 @@ Upper/lower skin & FS to RS (inter-spar bay) & --- & Aluminium sheet (or film) \
 \hline
 Assumption & Justification / Correction \\
 \hline
-\textbf{A1.} Total aircraft mass $m = 0.50$ kg & Scaled from Sky-Sailor using cubic scaling law (see \S{}3.2). Conservative estimate for a 980 mm solar UAV. \\
+\textbf{A1.} Total aircraft mass $m = 0.50$ kg & Scaled from Sky-Sailor using cubic scaling law (refer No.3.2). Conservative estimate for a 980 mm solar UAV. \\
 \hline
-\textbf{A2.} Design load factor $n = 2.5$ & Standard value for small UAVs (CS-23 small aircraft; acceptable for academic model). Gust correction applied in \S{}4.3. \\
+\textbf{A2.} Design load factor $n = 2.5$ & Standard value for small UAVs (CS-23 small aircraft; acceptable for academic model). Gust correction applied in No.4.3. \\
 \hline
 \textbf{A3.} Ultimate factor of safety $\mathrm{FOS} = 1.5$ & FAR/CS standard; ensures plastic reserve beyond limit loads. \\
 \hline
-\textbf{A4.} Lift acts at $x_{CP} = 31.3\%\,c$ & Derived from $C_L$ and $C_M$ (see \S{}4.2); corrected for off-design conditions. \\
+\textbf{A4.} Lift acts at $x_{CP} = 31.3\%\,c$ & Derived from $C_L$ and $C_M$ (refer No.4.2); corrected for off-design conditions. \\
 \hline
-\textbf{A5.} Rectangular wing $\rightarrow$ uniform load baseline & Elliptical correction applied in \S{}5.2. \\
+\textbf{A5.} Rectangular wing $\rightarrow$ uniform load baseline & Elliptical correction applied in No.5.2. \\
 \hline
 \textbf{A6.} Cruise altitude $\approx$ sea level; $\rho = 1.225$ kg/m$^{3}$ & Low-altitude solar UAV; use ISA sea-level values. \\
 \hline
@@ -311,11 +311,7 @@ W_{af,\text{mean}} = 5.58 \times 0.1065 \times 2.638 = 1.567\ \text{N} \implies 
 \textit{This is the design point. All structural calculations use this value.}
 
 
-
-
-
-
-\section{Aerodynamic Load Analysis}
+\newpageAerodynamic Load Analysis}
 
 
 
@@ -396,7 +392,7 @@ For finite wing: $a = \frac{2\pi AR}{AR + 2} = \frac{2\pi \times 3.92}{3.92 + 2}
 \Delta n_{\text{gust}} = \frac{1.225 \times 9.1 \times 6.39 \times 4.16}{2 \times 20.0} = \frac{292.3}{40.0} = 7.31
 \]
 
-\textbf{Gust alleviation factor (FAR 23 \S{}23.341):} The raw gust increment overestimates the effective load because inertia of the aircraft partially attenuates the instantaneous gust response. The alleviation factor K\_g is:
+\textbf{Gust alleviation factor (FAR 23 No.23.341):} The raw gust increment overestimates the effective load because inertia of the aircraft partially attenuates the instantaneous gust response. The alleviation factor K\_g is:
 
 \[
 K_g = \frac{0.88\,\mu_g}{5.3 + \mu_g}
@@ -424,9 +420,7 @@ n_{\text{gust,total}} = 1 + 2.43 = 3.43
 
 \textbf{Conclusion:} After gust alleviation, $n_{\text{gust}} = 3.43 \approx n_{\text{manoeuvre}} = 2.5$; the manoeuvre limit governs. The structural design uses \textbf{n = 2.5} as the limit load factor.
 
-\begin{quote}\itshape
-\textbf{Note:} Even the alleviated gust load factor (3.43) exceeds the 2.5 manoeuvre limit. This is typical for ultra-light solar UAVs with very low wing loading (W/S = 20 N/m$^{2}$). Operationally, flights must be restricted to calm conditions (winds ${\leq}$ 5 m/s) to keep the effective load factor within the structural envelope.
-\end{quote}
+Even the alleviated gust load factor (3.43) exceeds the 2.5 manoeuvre limit. This is typical for ultra-light solar UAVs with very low wing loading (W/S = 20 N/m$^{2}$). Operationally, flights must be restricted to calm conditions (winds ${\leq}$ 5 m/s) to keep the effective load factor within the structural envelope.
 
 \textbf{Limit lift force (full wing):}
 
@@ -470,7 +464,7 @@ where $C_{L,\max} = 1.25$ estimated for the WE3.55-9.3 airfoil at Re ${\approx}$
 V_A = V_{\text{stall}} \times \sqrt{n_{\text{max}}} = 5.11 \times \sqrt{2.5} = 5.11 \times 1.581 = 8.08\ \text{m/s}
 \]
 
-\textbf{Design dive speed} (FAR 23 \S{}23.335):
+\textbf{Design dive speed} (FAR 23 No.23.335):
 
 \[
 V_D = 1.40 \times V_c = 1.40 \times 6.39 = 8.95\ \text{m/s}
@@ -527,7 +521,7 @@ Aileron effectiveness assumption: 10 \% incremental lift per wing relative to st
 \begin{center}
 \begin{tabular}{|l|l|l|}
 \hline
-Wing & Lift at limit, roll manoeuvre (N) & Notes \\
+Wing & Lift at limit, roll manoeuvre (N) &  \\
 \hline
 Up-going (loaded) & 6.13 + 0.61 = \textbf{6.74 N} & +10 \% increment \\
 \hline
@@ -550,7 +544,7 @@ Aileron assumed to span the outer 30 \% of semi-span: $\bar{y}_{\text{aileron}} 
 \Delta M_{\text{RS,root}} = 0.613 \times 0.417 = 0.256\ \text{N}\cdot\text{m}
 \]
 
-From Section 8.2, the rear spar root bending moment at symmetric limit is M\_RS,limit = 0.191 N${\cdot}$m (10 \% of total, from \S{}9.1). With aileron increment:
+From Section 8.2, the rear spar root bending moment at symmetric limit is M\_RS,limit = 0.191 N${\cdot}$m (10 \% of total, from No.9.1). With aileron increment:
 
 \[
 M_{\text{RS,root,roll}} = 0.191 + 0.256 = 0.447\ \text{N}\cdot\text{m}
@@ -632,9 +626,7 @@ Compared with sea-level cruise speed of 6.39 m/s, this is a \textbf{+5 \% increa
 q_{\infty,1000} = \frac{1}{2}\,\rho_{1000}\,v_{1000}^2 = \frac{1}{2} \times 1.112 \times (6.71)^2 = 0.556 \times 45.02 = 25.03\ \text{N/m}^2
 \]
 
-\begin{quote}\itshape
-\textbf{Note:} Dynamic pressure at 1000 m (25.03 N/m$^{2}$) is virtually identical to the sea-level value (25.01 N/m$^{2}$). This is expected --- for level flight the required lift equals weight, so $q_\infty\,C_L\,S = W$ regardless of altitude, meaning $q_\infty$ is fixed by the aircraft weight and wing parameters, not by altitude directly.
-\end{quote}
+Dynamic pressure at 1000 m (25.03 N/m$^{2}$) is virtually identical to the sea-level value (25.01 N/m$^{2}$). This is expected --- for level flight the required lift equals weight, so $q_\infty\,C_L\,S = W$ regardless of altitude, meaning $q_\infty$ is fixed by the aircraft weight and wing parameters, not by altitude directly.
 
 Reynolds number at 1000 m:
 
@@ -653,7 +645,7 @@ Because $q_\infty$ is essentially constant with altitude at constant $C_L$ fligh
 \begin{center}
 \begin{tabular}{|l|l|l|l|}
 \hline
-Load & Sea Level & 1000 m & Notes \\
+Load & Sea Level & 1000 m &  \\
 \hline
 Cruise $q_\infty$ & 25.01 N/m$^{2}$ & 25.03 N/m$^{2}$ & Negligible change \\
 \hline
@@ -691,7 +683,7 @@ The gust load increment at 1000 m is \textbf{${\Delta}$n\_gust = 7.11}, compared
 
 
 
-\section{Distributed Lift and Shear Force Diagrams}
+\newpage \section{Distributed Lift and Shear Force Diagrams}
 
 
 The wing coordinate y runs from root (y = 0) to tip (y = b/2 = 0.490 m).
@@ -876,7 +868,7 @@ V_{\text{net}}(0) = V_{\text{lift}}(0) - w_{\text{inertia}} \times (b/2) = 9.20 
 M_{\text{net,root}} = M_{\text{lift,root}} - \frac{w_{\text{inertia}} \times (b/2)^2}{2} = 2.025 - \frac{5.08 \times 0.240}{2} = 2.025 - 0.610 = 1.415\ \text{N}\cdot\text{m}
 \]
 
-The inertia relief reduces the root bending moment by \textbf{~30 \%} relative to the aerodynamic-only value. For structural sizing the \textbf{conservative unreduced value (M\_root,ult = 2.025 N${\cdot}$m)} is used (consistent with \S{}6 and \S{}7 design calculations), making inertia relief an additional safety margin.
+The inertia relief reduces the root bending moment by \textbf{~30 \%} relative to the aerodynamic-only value. For structural sizing the \textbf{conservative unreduced value (M\_root,ult = 2.025 N${\cdot}$m)} is used (consistent with No.6 and No.7 design calculations), making inertia relief an additional safety margin.
 
 \begin{figure}[H]
     \centering
@@ -885,7 +877,7 @@ The inertia relief reduces the root bending moment by \textbf{~30 \%} relative t
     \label{fig:fig5}
 \end{figure}
 
-\section{Bending Moment Distribution}
+\newpage \section{Bending Moment Distribution}
 
 \subsection{Bending moment M(y) --- ultimate loads}
 
@@ -981,7 +973,7 @@ M_{spar} = 0.90 \times M_{\text{design}} = 0.90 \times 2.25 = 2.025\ \text{N}\cd
 
 
 
-\section{Main Spar (Front Spar) Sizing}
+\newpage \section{Main Spar (Front Spar) Sizing}
 
 
 The main spar is a \textbf{solid circular aluminium rod} (Al 6061-T6).
@@ -1087,17 +1079,13 @@ I_{FS} = \frac{\pi r^4}{4} = \frac{\pi (2.5 \times 10^{-3})^4}{4} = \frac{\pi \t
 = \frac{18.78 \times 0.05765}{8 \times 2.117 \times 10^{-3}} = \frac{1.0826}{1.6934 \times 10^{-2}} = 63.9\ \text{mm}
 \]
 
-\begin{quote}\itshape
 This deflection (${\approx}$ 6.5 \% of semi-span) is high for a 5 mm rod. It is acceptable for a flexible solar UAV wing but confirms the need for careful aeroelastic assessment. The deflection under limit loads (n = 2.5, before FOS):
 
 $$\delta\_{\text{tip,limit}} = \frac{63.9}{FOS} = \frac{63.9}{1.5} = 42.6\ \text{mm} \approx 4.4\%\ \text{semi-span}$$
 
 This is within the typical 5\% limit for flexible UAV wings.
-\end{quote}
-
 
 \subsection{Spar mass}
-
 
 \[
 m_{FS} = \rho_{Al} \times A_{FS} \times b/2 = 2700 \times \pi (2.5 \times 10^{-3})^2 \times 0.490
@@ -1118,7 +1106,7 @@ m_{FS,\text{total}} = 2 \times 25.97 = 51.9\ \text{g}
     \label{fig:fig7}
 \end{figure}
 
-\section{Rear Spar Sizing}
+\newpage \section{Rear Spar Sizing}
 
 The rear spar carries approximately 10\% of the bending moment and handles hinge loads from the ailerons plus torsion.
 
@@ -1153,7 +1141,7 @@ m_{RS,\text{total}} = 2 \times 2700 \times \pi (1.5 \times 10^{-3})^2 \times 0.4
 
 
 
-\section{Rib Design and Spacing}
+\newpage \section{Rib Design and Spacing}
 
 
 
@@ -1277,11 +1265,11 @@ where:
 \item $k$ = 4.0 (SS on all edges, compression in chord direction)
 \item $E_s$ = 69 GPa (aluminium)
 \item $\nu$ = 0.33 (aluminium)
-\item $t_s$ = skin thickness (to be determined in \S{}11)
+\item $t_s$ = skin thickness (to be determined in No.11)
 \item $a$ = rib spacing = 25.1 mm
 \end{itemize}
 
-Setting $\sigma_{\text{cr}} = \sigma_{\text{allow}}$ and solving for $t_s$ will be done in \S{}11.
+Setting $\sigma_{\text{cr}} = \sigma_{\text{allow}}$ and solving for $t_s$ will be done in No.11.
 
 
 \subsection{Rib mass}
@@ -1316,7 +1304,7 @@ m_{\text{ribs}} = 40 \times 0.80 = 32.0\ \text{g}
 
 
 
-\section{Torsion Analysis}
+\newpage \section{Torsion Analysis}
 
 
 
@@ -1334,7 +1322,7 @@ t(y) = w(y) \times e_L + m_{AC}'
 where:
 \begin{itemize}[noitemsep,topsep=2pt]
 \item $w(y)$ = distributed lift load per unit span
-\item $e_L$ = 15.6 mm = 0.0156 m (lift eccentricity from FS, \S{}4.2)
+\item $e_L$ = 15.6 mm = 0.0156 m (lift eccentricity from FS, No.4.2)
 \item $m_{AC}' = C_{M,AC} \times q \times c^2$ = pitching moment per unit span
 \end{itemize}
 
@@ -1366,9 +1354,7 @@ T_{\text{root}} = \int_0^{b/2} w(y) e_L\, dy + m_{AC}' \times (b/2)
 = 0.1435 - 0.0383 = 0.1052\ \text{N}\cdot\text{m}
 \]
 
-\begin{quote}\itshape
 The net torque at root is \textbf{0.105 N${\cdot}$m} (nose-up, tending to increase angle of attack on the front portion). This must be resisted by the D-box and inter-spar structure.
-\end{quote}
 
 
 \subsection{D-box (closed section) torsional stiffness}
@@ -1404,7 +1390,7 @@ Shear stress in D-box skin (skin thickness $t_s$):
 \tau_{D} = \frac{q_s}{t_s}
 \]
 
-For aluminium skin with $t_s = 0.3\ \text{mm}$ (see \S{}11):
+For aluminium skin with $t_s = 0.3\ \text{mm}$ (refer No.11):
 
 \[
 \tau_{D} = \frac{107.2}{3 \times 10^{-4}} = 357,333\ \text{Pa} = 0.357\ \text{MPa} \ll \tau_{\text{allow}} = 159.2\ \text{MPa} \quad \checkmark 
@@ -1489,7 +1475,7 @@ Ratio $q_\infty / q_D = 25.01 / 26{,}483 = 9.4 \times 10^{-4}$ --- divergence is
 
 
 
-\section{Skin (Covering Sheet) Sizing}
+\newpage \section{Skin (Covering Sheet) Sizing}
 
 
 
@@ -1498,7 +1484,7 @@ Ratio $q_\infty / q_D = 25.01 / 26{,}483 = 9.4 \times 10^{-4}$ --- divergence is
 
 The D-box skin must resist:
 \begin{enumerate}[noitemsep,topsep=2pt]
-\item Torsion-induced shear (\S{}10.2): ${\tau}$ = 0.357 MPa
+\item Torsion-induced shear (No.10.2): ${\tau}$ = 0.357 MPa
 \item Compressive loads from upper-surface bending of main spar: negligible in skin
 \end{enumerate}
 
@@ -1546,9 +1532,7 @@ where z = h\_FS/2 = 10 mm from spar neutral axis, and $I_{\text{total}}$ is the 
 \sigma_c = \frac{2.025 \times 0.010}{3.068 \times 10^{-11}} = \frac{0.02025}{3.068 \times 10^{-11}} = 6.60 \times 10^8\ \text{Pa} = 660\ \text{MPa}
 \]
 
-\begin{quote}\itshape
 This confirms the spar carries the bending --- the skin does not participate in bending resistance and is sizing by buckling/minimum gauge only.
-\end{quote}
 
 \textbf{Compressive buckling of skin panel} (rib pitch a = 25 mm, chord direction b\_panel = 100 mm inter-spar bay; k = 4.0, all edges SS):
 
@@ -1581,7 +1565,7 @@ t_s \geq 7.15 \times 10^{-4}\ \text{m} = 0.715\ \text{mm}
 \item The film/skin acts as a \textbf{shear diaphragm}, not a compression element,
 \end{enumerate}
 
-The practical design is: \textbf{0.3 mm aluminium sheet} for the D-box and leading-edge, with \textbf{thin polyester film} (Oracover / Monokote) for the inter-spar and trailing-edge bay, bonded to the ribs. This is consistent with Sky-Sailor construction.
+The practical design is: \textbf{0.3 mm aluminium sheet} for the D-box and leading-edge, with \textbf{thin polyester film} (Oracover / Monokote) for the inter-spar and trailing-edge bay, bonded to the ribs.
 
 \textbf{Polyester film --- tension-stabilisation:} The lower-surface film skin operates as a tension membrane during upward bending and in diagonal tension during torsional shear. Under torsional shear the film wrinkles (buckles) in compression but remains structurally effective in the tension diagonal, analogous to a \textbf{tension-field web} (Wagner beam theory). This behaviour is accepted practice for UAV film skins. The full-scale Sky-Sailor uses 0.1 mm polyester (Oracover) on the lower surface in exactly this mode. The wrinkle onset can be estimated:
 
@@ -1589,7 +1573,7 @@ The practical design is: \textbf{0.3 mm aluminium sheet} for the D-box and leadi
 \tau_{\text{cr,film}} = k_s \frac{\pi^2 E_{\text{film}}}{12(1-\nu^2)}\left(\frac{t_f}{a}\right)^2 = 106.9 \times \frac{\pi^2 \times 3.5 \times 10^9}{10.93} \times \left(\frac{1 \times 10^{-4}}{0.025}\right)^2 = 0.79\ \text{MPa}
 \]
 
-The applied torsional shear from \S{}10.2 is only 0.357 MPa, so the film wrinkles marginally (if at all) in the prototype; in the full-scale wing the higher torsional loads do cause visible wrinkling which is acceptable. The critical point is that film skins must \textbf{never} be relied upon to carry compression load from wing bending.
+The applied torsional shear from No.10.2 is only 0.357 MPa, so the film wrinkles marginally (if at all) in the prototype; in the full-scale wing the higher torsional loads do cause visible wrinkling which is acceptable. The critical point is that film skins must \textbf{never} be relied upon to carry compression load from wing bending.
 
 \textbf{Skin mass:}
 
@@ -1602,7 +1586,7 @@ m_{\text{skin}} \approx \rho_{Al} \times t_s \times S_{D\text{-box}} = 2700 \tim
 
 
 
-\section{Natural Frequency and Vibration Analysis}
+\newpage \section{Natural Frequency and Vibration Analysis}
 
 
 
@@ -1755,9 +1739,7 @@ V_{\text{div}} = \frac{\pi}{2 \times 0.490}\sqrt{\frac{103.1}{\frac{1}{2} \times
 = 3.204 \times 508.3 = 1,628\ \text{m/s}
 \]
 
-\begin{quote}\itshape
 $\checkmark $ \textbf{Divergence speed $\gg$ V\_D.} The wing is divergence-free at all practical flight speeds.
-\end{quote}
 
 For the NACA 0012 prototype (symmetric, $C_{M,AC} = 0$, e = 0 exactly): divergence is impossible by definition. $\checkmark $
 
@@ -1785,9 +1767,7 @@ where $c_f \approx 0.6$ (empirical correction for low-AR wings). However, with $
 V_{\text{flutter}} \approx \frac{f_{T1} \times c}{\pi} \times \frac{1}{\sqrt{1-(f_B/f_T)^2}} = \frac{145.8 \times 0.250}{\pi} \times \frac{1}{\sqrt{1-0.041^2}} \approx \frac{36.45}{3.14} \times 1.001 = 11.6 \times 1.001 \approx 11.6\ \text{m/s}
 \]
 
-\begin{quote}\itshape
 $\textbf{Warning:} $ \textbf{V\_flutter ${\approx}$ 11.6 m/s ${\approx}$ V\_D = 8.95 m/s ${\times}$ 1.3} --- marginal by this simplified formula. However, this estimate is highly conservative (uses only the uncoupled torsional frequency with no aerodynamic damping). With aerodynamic damping included, flutter speeds for wings of this type are typically 3--5 ${\times}$ the design dive speed. \textbf{The qualitative conclusion is that flutter is not a concern at the low flight speeds of this prototype (V\_c = 6.39 m/s, V\_D = 8.95 m/s)}, consistent with the frequency ratio of 0.041 being far from the coupled regime.
-\end{quote}
 
 \textbf{Aeroelastic summary:}
 
@@ -1926,7 +1906,7 @@ Propulsion, avionics, battery & 297 \\
 \end{tabular}
 \end{center}
 
-\section{Fabrication --- Bill of Materials}
+\newpage \section{Fabrication --- Bill of Materials}
 
 This section consolidates all raw materials required to build one complete wing (both half-panels) of the prototype, based on the structural analysis in sections 5--12, updated to the physical geometry described below. Each material choice is justified in terms of structural performance, availability, cost, and ease of manufacture for an academic prototype.
 
@@ -1940,17 +1920,17 @@ The prototype wing for the fabrication exercise uses the following parameters (u
 \hline
 Parameter & Symbol & Value & Derivation \\
 \hline
-Airfoil & --- & NACA 0012 & 12 \% symmetric; see \S{}14.3 \\
+Airfoil & --- & NACA 0012 & 12 \% symmetric; refer No.14.3 \\
 \hline
-Maximum thickness & $t_{\max}$ & 3.6 cm = 36 mm & 12 \% $\times$ chord (see \S{}14.3) \\
+Maximum thickness & $t_{\max}$ & 3.6 cm = 36 mm & 12 \% $\times$ chord (refer No.14.3) \\
 \hline
 Chord & $c$ & 0.30 m = 300 mm & $t_{\max} / 0.12 = 36/0.12 = 300$ mm \\
 \hline
 Wing span (planform length) & $b$ & 1.00 m & Design requirement \\
 \hline
-Number of ribs & $N$ & 12 & One per 91 mm bay; see \S{}14.4 \\
+Number of ribs & $N$ & 12 & One per 91 mm bay; refer No.14.4 \\
 \hline
-Spar diameter (both spars) & $d$ & 5 mm & Aluminium rod; see \S{}14.2 \\
+Spar diameter (both spars) & $d$ & 5 mm & Aluminium rod; refer No.14.2 \\
 \hline
 Wing area & $S$ & $b \times c = 0.30$ m$^{2}$ & Rectangular planform \\
 \hline
@@ -1968,13 +1948,13 @@ Aspect ratio & $AR$ & $b^{2} / S = 1.00 / 0.30 = 3.33$ & --- \\
 \hline
 Item & Material & Specification & Quantity & Unit & Reason \\
 \hline
-\textbf{Front (main) spar} & Aluminium alloy rod (Al 6061-T6) & $\varnothing$ 5 mm $\times$ 1000 mm & 2 & pieces & See \S{}14.2.1 \\
+\textbf{Front (main) spar} & Aluminium alloy rod (Al 6061-T6) & $\varnothing$ 5 mm $\times$ 1000 mm & 2 & pieces & refer No.14.2.1 \\
 \hline
-\textbf{Rear spar} & Aluminium alloy rod (Al 6061-T6) & $\varnothing$ 5 mm $\times$ 1000 mm & 2 & pieces & See \S{}14.2.1 \\
+\textbf{Rear spar} & Aluminium alloy rod (Al 6061-T6) & $\varnothing$ 5 mm $\times$ 1000 mm & 2 & pieces & refer No.14.2.1 \\
 \hline
-\textbf{Rib blanks} & Balsa wood sheet (medium density, $\sim$160 kg/m$^{3}$) & 200 mm $\times$ 200 mm $\times$ 2 mm & 2 & sheets & See \S{}14.2.2 \\
+\textbf{Rib blanks} & Balsa wood sheet (medium density, $\sim$160 kg/m$^{3}$) & 200 mm $\times$ 200 mm $\times$ 2 mm & 2 & sheets & refer No.14.2.2 \\
 \hline
-\textbf{Airfoil templates} & NACA 0012 (cut from balsa sheet) & Chord 300 mm $\times$ span-width 2 mm & 12 & ribs & See \S{}14.3 \\
+\textbf{Airfoil templates} & NACA 0012 (cut from balsa sheet) & Chord 300 mm $\times$ span-width 2 mm & 12 & ribs & refer No.14.3 \\
 \hline
 \textbf{Rib doubler strips} & Balsa wood sheet (same batch) & 2 mm $\times$ 10 mm $\times$ 30 mm & 24 & pieces & Joint reinforcement at spar cut-line in each rib \\
 \hline
@@ -1998,13 +1978,13 @@ Item & Material & Specification & Quantity & Unit & Reason \\
 
 \textbf{Specification:} Al 6061-T6 solid circular rod, 5 mm diameter, 1000 mm length, two pieces per spar line (one per half-wing), four rods total. The same $\varnothing$ 5 mm rod is used for both the front (main) spar and the rear spar, standardising procurement to a single line item and eliminating the risk of interchanging rods during assembly.
 
-\textbf{Structural adequacy --- front spar:} From Section 7.2, the minimum front spar diameter for the 980 mm / 250 mm chord analysis wing is d\_min = 4.64 mm (r\_min = 2.32 mm). For the updated 1 m span / 300 mm chord prototype, using n = 2.5, FOS = 1.5 at sea level / 1000 m (loads unchanged per \S{}4.4), the uniform-load root bending moment is:
+\textbf{Structural adequacy --- front spar:} From Section 7.2, the minimum front spar diameter for the 980 mm / 250 mm chord analysis wing is d\_min = 4.64 mm (r\_min = 2.32 mm). For the updated 1 m span / 300 mm chord prototype, using n = 2.5, FOS = 1.5 at sea level / 1000 m (loads unchanged per No.4.4), the uniform-load root bending moment is:
 
 \[
 M_{\text{root,ult}} = \frac{w_0\,(b/2)^2}{2} = \frac{(9.20/0.500)\times(0.500)^2}{2} = \frac{18.40 \times 0.250}{2} = 2.30\ \text{N}\cdot\text{m}
 \]
 
-Minimum front-spar radius (${\sigma}$\_allow = ${\sigma}$\_ult / FOS = 310 / 1.5 = 206.7 MPa from \S{}7.1; 90 \% of moment to front spar):
+Minimum front-spar radius (${\sigma}$\_allow = ${\sigma}$\_ult / FOS = 310 / 1.5 = 206.7 MPa from No.7.1; 90 \% of moment to front spar):
 
 \[
 r \geq \left(\frac{4 \times 0.90 \times 2.30}{\pi \times 206.7 \times 10^6}\right)^{1/3} = \left(\frac{8.28}{649.2 \times 10^6}\right)^{1/3} = (1.275 \times 10^{-8})^{1/3} = 2.33\ \text{mm}
@@ -2045,9 +2025,7 @@ Under limit loads (n = 2.5, before FOS):
 \delta_{\text{tip,limit}} = \frac{67.9}{FOS} = \frac{67.9}{1.5} = 45.3\ \text{mm} \approx 9.1\%\ \text{semi-span}
 \]
 
-\begin{quote}\itshape
-\textbf{Note:} The deflection at limit load (45.3 mm, 9.1 \% of semi-span) exceeds the conventional 5 \% guideline for rigid wings. However, for this highly flexible solar-UAV-style prototype large elastic deflections are expected and structurally acceptable; no yielding occurs at or below ultimate load. The spar can be safely loaded to full design limit and ultimate loads during structural tests (see \S{}15.4).
-\end{quote}
+The deflection at limit load (45.3 mm, 9.1 \% of semi-span) exceeds the conventional 5 \% guideline for rigid wings. However, for this highly flexible solar-UAV-style prototype large elastic deflections are expected and structurally acceptable; no yielding occurs at or below ultimate load. The spar can be safely loaded to full design limit and ultimate loads during structural tests (refer No.15.4).
 
 \textbf{Structural adequacy --- rear spar ($\varnothing$ 5 mm):}
 
@@ -2178,7 +2156,7 @@ Rib pitch & 90.9 mm & Derived from $b / (N-1) = 1000 / 11$ \\
 \end{tabularx}
 \end{center}
 
-\textbf{Why 1 m span?} A 1 m span is the standard for an academic laboratory prototype for several reasons:
+A 1 m span is the standard for an academic laboratory prototype for several reasons:
 \begin{itemize}[noitemsep,topsep=2pt]
 \item It is the maximum that can be easily fabricated from hobby-shop stock (balsa sheets, aluminium rod sold in 1 m lengths).
 \item It can be mounted in a benchtop wind tunnel or loaded in a static test rig within a typical lab environment.
@@ -2186,37 +2164,19 @@ Rib pitch & 90.9 mm & Derived from $b / (N-1) = 1000 / 11$ \\
 \item The wing fits across a standard doorway and can be transported without specialised handling.
 \end{itemize}
 
-
-
-
-
-
-\section{Testing: Procedures, Cautions, and Expected Results}
-
-
+\newpage \section{Testing: Procedures, Cautions, and Expected Results}
 
 \subsection{Overview}
 
-
 Testing is conducted in three phases: (A) material/coupon level, (B) component level, and (C) full wing static and dynamic tests. The goal is to verify that the as-built wing meets the structural margins established in sections 7--12 and that no catastrophic failure mode is present below the design ultimate load.
 
-\begin{quote}\itshape
 \textbf{General Safety Caution:} All structural tests on the prototype wing must be conducted with the test area cleared of personnel except the operator. Load increments must be applied gradually (${\leq}$ 10 \% of ultimate per 30-second step). All observers must stand behind a protective screen or at least 2 m from the specimen when loads exceed 70 \% of ultimate. Eye protection must be worn at all times during spar-level tests.
-\end{quote}
-
-
-
-
-
 
 \subsection{Phase A --- Material and Coupon Tests}
 
-
-
 \subsubsection{Test A1: Aluminium Rod Tensile/Bending Coupon Test}
 
-
-\textbf{Purpose:} Verify the tensile and bending strength of the purchased Al 6061-T6 rod ($\varnothing$ 5 mm) matches the assumed material properties (${\sigma}$\_y = 276 MPa, ${\sigma}$\_ult = 310 MPa, E = 69 GPa).
+The purpose is to verify the tensile and bending strength of the purchased Al 6061-T6 rod ($\varnothing$ 5 mm) matches the assumed material properties (${\sigma}$\_y = 276 MPa, ${\sigma}$\_ult = 310 MPa, E = 69 GPa).
 
 \textbf{Procedure:}
 \begin{enumerate}[noitemsep,topsep=2pt]
@@ -2252,15 +2212,9 @@ Tip deflection at 1 N & $\delta = \dfrac{F L^3}{3EI} = \dfrac{1.0 \times (0.1)^3
 \item Use smooth-jaw grips to avoid stress concentrations at the clamp that would cause premature failure.
 \end{itemize}
 
-
-
-
-
-
 \subsubsection{Test A2: Balsa Wood Three-Point Bending Test}
 
-
-\textbf{Purpose:} Confirm the along-grain bending modulus and modulus of rupture (MOR) of the balsa sheet batch.
+The purpose is to confirm the along-grain bending modulus and modulus of rupture (MOR) of the balsa sheet batch.
 
 \textbf{Procedure:}
 \begin{enumerate}[noitemsep,topsep=2pt]
@@ -2295,19 +2249,11 @@ Fracture mode & Clean across grain & No delamination; no splitting along grain \
 \item Reject batches with visible knots, resin pockets, or density variation > 20 \% (check by weighing three coupons against theoretical mass = ${\rho}$ ${\times}$ L ${\times}$ b ${\times}$ h = 160 ${\times}$ 0.15 ${\times}$ 0.02 ${\times}$ 0.002 = 0.096 g per coupon).
 \end{itemize}
 
-
-
-
-
-
 \subsection{Phase B --- Component Tests}
-
-
 
 \subsubsection{Test B1: Rib Load-Bearing Test}
 
-
-\textbf{Purpose:} Verify that the assembled balsa ribs maintain their profile under aerodynamic pressure loads.
+The purpose is to verify that the assembled balsa ribs maintain their profile under aerodynamic pressure loads.
 
 \textbf{Procedure:}
 \begin{enumerate}[noitemsep,topsep=2pt]
@@ -2325,19 +2271,11 @@ Fracture mode & Clean across grain & No delamination; no splitting along grain \
 \item Do not apply concentrated loads (e.g., fingertip pressure) to the leading-edge rib nose, which is the most fragile area.
 \end{itemize}
 
-
-
-
-
-
 \subsubsection{Test B2: Spar Bending Test (Full Half-Span)}
 
+The purpose is to verify spar stiffness and confirm linear-elastic response over the 500 mm half-span.
 
-\textbf{Purpose:} Verify spar stiffness and confirm linear-elastic response over the 500 mm half-span.
-
-\begin{quote}\itshape
 \textbf{Caution before starting:} A $\varnothing$ 5 mm Al rod at 470 mm free length yields at \textbf{F\_y ${\approx}$ 7.20 N} (root yield moment M\_y = ${\sigma}$\_y ${\times}$ I/r = 276 ${\times}$ 10$^{6}$ ${\times}$ 3.068 ${\times}$ 10$^{-}$$^{1}$$^{1}$ / 2.5 ${\times}$ 10$^{-}$$^{3}$ = 3.386 N${\cdot}$m; F\_y = 3.386/0.470 = 7.20 N). Maximum safe test load is \textbf{5.0 N} (69 \% of yield). Do not exceed this.
-\end{quote}
 
 \textbf{Procedure:}
 \begin{enumerate}[noitemsep,topsep=2pt]
@@ -2398,9 +2336,7 @@ Deflection linearity up to 4.0 N & $R^{2} > 0.99$ for $F$--$\delta$ plot & $R^{2
     \label{fig:fig11}
 \end{figure}
 
-\begin{quote}\itshape
-\textbf{Note on stiffness improvement:} The 16.4 mm tip deflection per Newton for the $\varnothing$ 5 mm spar is 7.7${\times}$ smaller than the 126 mm/N of a $\varnothing$ 3 mm rod --- consistent with the $(d_5/d_3)^4 = (5/3)^4 = 7.72$ ratio of second moments of area. The purpose of this test is to verify E through measured stiffness and confirm the rod batch meets material specification.
-\end{quote}
+The 16.4 mm tip deflection per Newton for the $\varnothing$ 5 mm spar is 7.7${\times}$ smaller than the 126 mm/N of a $\varnothing$ 3 mm rod --- consistent with the $(d_5/d_3)^4 = (5/3)^4 = 7.72$ ratio of second moments of area. The purpose of this test is to verify E through measured stiffness and confirm the rod batch meets material specification.
 
 \textbf{Cautions:}
 \begin{itemize}[noitemsep,topsep=2pt]
@@ -2409,23 +2345,13 @@ Deflection linearity up to 4.0 N & $R^{2} > 0.99$ for $F$--$\delta$ plot & $R^{2
 \item Do not kink the rod during clamping; inspect the free end under magnification for scratches or tool marks that could initiate fatigue cracks.
 \end{itemize}
 
-
-
-
-
-
 \subsection{Phase C --- Full Wing Static Test}
-
-
 
 \subsubsection{Test C1: Wing Tip Deflection Under Distributed Load}
 
+The $\varnothing$ 5 mm front spar remains fully elastic at all design load levels. The root front-spar bending moment at design ultimate load (2.07 N${\cdot}$m) is only 61 \% of the yield moment (3.39 N${\cdot}$m), providing a yield safety margin of +64 \%. The full wing may therefore be safely loaded to 100 \% design limit load (6.13 N half-wing) and, if desired, to design ultimate load (9.20 N half-wing) during structural testing. Standard load increments (${\leq}$ 10 \% of ultimate per 30-second step) and general safety precautions from No.15.1 still apply.
 
-\begin{quote}\itshape
-\textbf{Note before setup:} The $\varnothing$ 5 mm front spar remains fully elastic at all design load levels. The root front-spar bending moment at design ultimate load (2.07 N${\cdot}$m) is only 61 \% of the yield moment (3.39 N${\cdot}$m), providing a yield safety margin of +64 \%. The full wing may therefore be safely loaded to 100 \% design limit load (6.13 N half-wing) and, if desired, to design ultimate load (9.20 N half-wing) during structural testing. Standard load increments (${\leq}$ 10 \% of ultimate per 30-second step) and general safety precautions from \S{}15.1 still apply.
-\end{quote}
-
-\textbf{Purpose:} Verify linear-elastic structural response of the assembled wing and measure tip deflection up to design limit loads; confirm structural integrity and no damage (debonds, cracks) under the full design load range.
+The purpose of the test is to verify linear-elastic structural response of the assembled wing and measure tip deflection up to design limit loads; confirm structural integrity and no damage (debonds, cracks) under the full design load range.
 
 \textbf{Procedure:}
 \begin{enumerate}[noitemsep,topsep=2pt]
@@ -2449,7 +2375,7 @@ Deflection linearity up to 4.0 N & $R^{2} > 0.99$ for $F$--$\delta$ plot & $R^{2
 \begin{center}
 \begin{tabularx}{\textwidth}{|l|l|l|X|}
 \hline
-Load level & Applied load (N) & Expected tip deflection (mm) & Notes \\
+Load level & Applied load (N) & Expected tip deflection (mm) &  \\
 \hline
 25 \% limit & 1.53 & $\sim$11 & Linear; no visible deformation \\
 \hline
@@ -2464,12 +2390,10 @@ Load level & Applied load (N) & Expected tip deflection (mm) & Notes \\
 \end{tabularx}
 \end{center}
 
-\begin{quote}\itshape
 \textbf{Calculation for reference:} Tip deflection under uniform distributed load at 100 \% limit load:
 $$\delta\_{\text{tip}} = \frac{w\_0 (b/2)^4}{8EI} = \frac{12.26 \times (0.500)^4}{8 \times 69 \times 10^9 \times 3.068 \times 10^{-11}} = \frac{0.7663}{1.694 \times 10^{-2}} = 45.2\ \text{mm} \approx 9.0\%\ \text{semi-span}$$
 
 The $\varnothing$ 5 mm front spar is structurally adequate at 1 m span --- no yielding occurs at or below design ultimate load. The 9 \% semi-span deflection at limit load is large but elastically recoverable; it is characteristic of flexible solar-UAV-style construction and is accepted for this prototype.
-\end{quote}
 
 \textbf{Pass/fail criteria (up to 100 \% limit):}
 \begin{itemize}[noitemsep,topsep=2pt]
@@ -2493,12 +2417,12 @@ The $\varnothing$ 5 mm front spar is structurally adequate at 1 m span --- no yi
 
 \subsubsection{Test C2: Wing Torsion Test}
 
-\textbf{Purpose:} Verify the D-box torsional stiffness and confirm that the wing does not twist excessively under aerodynamic pitching moment.
+The purpose is to verify the D-box torsional stiffness and confirm that the wing does not twist excessively under aerodynamic pitching moment.
 
 \textbf{Procedure:}
 \begin{enumerate}[noitemsep,topsep=2pt]
 \item With the wing mounted root-fixed, apply a torque at 75 \% semi-span by hanging equal-and-opposite weights (nose-down/nose-up couple) at the leading edge and trailing edge of one rib, 300 mm from the root.
-\item Target torque: 0.05 N${\cdot}$m (half the root torque calculated in \S{}10.1).
+\item Target torque: 0.05 N${\cdot}$m (half the root torque calculated in No.10.1).
 \item Measure twist angle using a digital inclinometer placed on the rib at the load station.
 \item Increase torque in 10 \% steps to 0.10 N${\cdot}$m.
 \end{enumerate}
@@ -2519,7 +2443,7 @@ Torque (N${\cdot}$m) & Expected twist (degrees) \\
 \end{tabular}
 \end{center}
 
-Analytical twist (from \S{}10.3): $\phi = 0.014^{\circ}$ for T\_root = 0.105 N${\cdot}$m. Values here are lower because load is applied at 75 \% span, not root.
+Analytical twist (from No.10.3): $\phi = 0.014^{\circ}$ for T\_root = 0.105 N${\cdot}$m. Values here are lower because load is applied at 75 \% span, not root.
 
 \textbf{Acceptance criterion:} Twist per unit torque ${\leq}$ 0.3$^{\circ}$/N${\cdot}$m at the load station. Residual twist < 0.05$^{\circ}$ after load removal.
 
@@ -2529,15 +2453,9 @@ Analytical twist (from \S{}10.3): $\phi = 0.014^{\circ}$ for T\_root = 0.105 N${
 \item Do not apply torque in the trailing-edge-up (positive pitch) direction beyond 0.15 N${\cdot}$m, which risks peel-off of the D-box skin at the leading edge.
 \end{itemize}
 
-
-
-
-
-
 \subsubsection{Test C3: Tap Test --- Skin/Rib Debond Detection}
 
-
-\textbf{Purpose:} Detect any adhesive delamination or debonds between skin, ribs, and spars without destructive testing.
+The purpose is to detect any adhesive delamination or debonds between skin, ribs, and spars without destructive testing.
 
 \textbf{Procedure:}
 \begin{enumerate}[noitemsep,topsep=2pt]
@@ -2554,19 +2472,11 @@ Analytical twist (from \S{}10.3): $\phi = 0.014^{\circ}$ for T\_root = 0.105 N${
 \item Perform the tap test in a quiet environment; ambient noise masks the acoustic signature.
 \end{itemize}
 
-
-
-
-
-
 \subsection{Phase D --- Vibration / Modal Test}
-
-
 
 \subsubsection{Test D1: Free-Vibration Pluck Test (Wing Natural Frequency)}
 
-
-\textbf{Purpose:} Confirm the first bending natural frequency is consistent with the analytical prediction (f$_{1}$ ${\approx}$ 5.97 Hz from \S{}12.1).
+The purpose is to confirm the first bending natural frequency is consistent with the analytical prediction (f$_{1}$ ${\approx}$ 5.97 Hz from No.12.1).
 
 \textbf{Procedure:}
 \begin{enumerate}[noitemsep,topsep=2pt]
@@ -2616,7 +2526,7 @@ All test results should be recorded in the test log with:
 
 A completed test log signed by the laboratory supervisor constitutes the airworthiness evidence for the prototype wing. No flight or wind-tunnel testing should proceed until all Phase A, B, and C tests have returned \textbf{Pass} results.
 
-\section{Appendix A --- Material Properties Summary}
+\newpage \section{Appendix A --- Material Properties Summary}
 
 \begin{center}
 \renewcommand{\arraystretch}{1.2}
@@ -2635,7 +2545,7 @@ Polyester film (Oracover, for reference) & 3.5 & --- & 50 & 70 & 1390 \\
 \end{tabularx}
 \end{center}
 
-\section{Appendix B --- Assumptions Correction Table}
+\newpage \section{Appendix B --- Assumptions Correction Table}
 
 \begin{center}
 \renewcommand{\arraystretch}{1.2}
@@ -2662,7 +2572,7 @@ Torsional stiffness & Open section & \textbf{Closed D-box} (Bredt--Batho) & Lead
 \end{tabularx}
 \end{center}
 
-\section{Appendix C --- Full-Scale Reference Analysis (Sky-Sailor)}
+\newpage \section{Appendix C --- Full-Scale Reference Analysis (Sky-Sailor)}
 
 This appendix provides reference analysis of the \textbf{full-scale Sky-Sailor solar UAV} (3.2 m span, André Noth, ETH Zürich, 2008). It serves as a design benchmark and shows how the scale model relates to the full-scale design.
 
@@ -2704,7 +2614,7 @@ Scale factor (vs prototype) & ${\lambda}$ & 0.490 / 1.600 = 0.306 & --- \\
 
 \textbf{Full-scale design load factor (after gust alleviation):}
 
-Using FAR 23 \S{}23.337 / \S{}23.341 with K\_g:
+Using FAR 23 No.23.337 / No.23.341 with K\_g:
 
 \[
 \mu_g = \frac{2(m/S)}{\rho\,c\,a} = \frac{2 \times (2.444/0.776)}{1.225 \times 0.250 \times 5.44} = \frac{6.30}{1.662} = 3.790
@@ -2730,11 +2640,19 @@ Design load factor: \textbf{n = 3.5} (FAR 23 manoeuvre limit governs after allev
 
 \textbf{Inertia-relieved net load per semi-span (n = 3.5):}
 
-\begin{verbatim}
-L_per_wing = (n x W) / 2 = (3.5 x 23.96) / 2 = 41.93 N
-m_wing_semi ~ 0.2625 kg  ->  W_inertia = 0.2625 x 9.81 x 3.5 = 9.01 N
-L_net = 41.93 - 9.01 = 32.92 N
-\end{verbatim}
+\begin{align}
+L_{\text{per wing}} &= \frac{n W}{2} 
+= \frac{3.5 \times 23.96}{2} 
+= 41.93\ \text{N} \\
+\\
+W_{\text{inertia}} &= m_{\text{wing, semi}} \, g \, n 
+= 0.2625 \times 9.81 \times 3.5 
+= 9.01\ \text{N} \\
+\\
+L_{\text{net}} &= L_{\text{per wing}} - W_{\text{inertia}} 
+= 41.93 - 9.01 
+= 32.92\ \text{N}
+\end{align}
 
 \textbf{Root values:}
 
@@ -2760,14 +2678,12 @@ Root lift per unit span l$_{0}$ (elliptical) & 33.37 N/m \\
 
 The full-scale spar is a carbon-fibre-reinforced polymer (CFRP) I-section, replacing the aluminium rod used in the scale prototype.
 
-\begin{verbatim}
 Spar cross-section:
-  Height h         = t_max = 23.25 mm  (cap-to-cap)
-  Cap width b_cap  = 15 mm
+  Height h         = t\(_\text{max}\) = 23.25 mm  (cap-to-cap)
+  Cap width b\(_\text{cap}\)  = 15 mm
   Cap thickness    = 1.0 mm (2 x 0.5 mm CFRP prepreg, T300)
   Web thickness    = 2.0 mm (balsa, grain vertical)
-  Web height h_web = h - 2 x t_cap = 21.25 mm
-\end{verbatim}
+  Web height h\(_\text{web}\) = h - 2 x t\(_\text{cap}\) = 21.25 mm
 
 \textbf{Second moment of area:}
 
@@ -2806,54 +2722,36 @@ Allowable shear (balsa, vertical grain): ${\tau}$\_allow = 3.0 MPa ${\rightarrow
 \]
 
 \[
-= 1.693 \times 10^{10} \times 8.873 \times 10^{-3} = 1.502 \times 10^7\ \text{Pa}... 
-\]
-
-Step-by-step:
-\begin{itemize}[noitemsep,topsep=2pt]
-\item Coefficient: $5.35 \times 9.870 \times 3.5 \times 10^9 / (12 \times 0.91) = 1.693 \times 10^{10}$
-\item $(t/h)^2 = (2.0/21.25)^2 = (0.09412)^2 = 8.859 \times 10^{-3}$
-\item $\tau_{\text{cr}} = 1.693 \times 10^{10} \times 8.859 \times 10^{-3} = 1.500 \times 10^{8}\ \text{Pa}$
-\end{itemize}
-
-Wait --- recalculate correctly:
-
-\[
-\tau_{\text{cr}} = \frac{5.35 \times 9.870 \times 3.5 \times 10^9}{12 \times (1-0.3^2)} \times \left(\frac{0.002}{0.02125}\right)^2 = \frac{184.8 \times 10^9}{10.92} \times 8.859 \times 10^{-3} = 1.693 \times 10^{10} \times 8.859 \times 10^{-3}
-\]
-
-\[
-= 1.500 \times 10^{8}\ \text{Pa} = 150.0\ \text{MPa}
+= 1.693 \times 10^{10} \times 8.873 \times 10^{-3} = 1.502 \times 10^8\ \text{Pa}... 
 \]
 
 This is the critical buckling stress for the web panel (Euler plate buckling with k\_s = 5.35 for infinitely long plate, a/b >> 1). \textbf{SF\_web\_buckling = 150 / 0.485 = 309} --- web buckling is not a concern.
 
-\begin{quote}\itshape
-\textbf{Note:} An earlier version of the spar used t\_web = 1.5 mm, which gave ${\tau}$\_cr = 84.4 MPa and SF\_buckling = 174. Even the thinner web is adequate. The web thickness of 2.0 mm was chosen for \textbf{ease of fabrication} (easier to cut and handle) rather than structural necessity.
-\end{quote}
+An earlier version of the spar used t\_web = 1.5 mm, which gave ${\tau}$\_cr = 84.4 MPa and SF\_buckling = 174. Even the thinner web is adequate. The web thickness of 2.0 mm was chosen for \textbf{ease of fabrication} (easier to cut and handle) rather than structural necessity.
 
 \textbf{Full-scale spar structural weight:}
 
-\begin{verbatim}
-CFRP caps:  m = rho_CFRP x 2 x b_cap x t_cap x s = 1600 x 2 x 0.015 x 0.001 x 1.6 = 76.8 g
-Balsa web:  m = rho_balsa x t_web x h_web x s     = 160 x 0.002 x 0.02125 x 1.6   = 10.9 g
-Total main spar (per semi-span): 87.7 g
-\end{verbatim}
+
+CFRP caps:  m = rho\(_{\text{CFRP}}\) x 2 x b\(_\text{cap}\) x t\(_\text{cap}\) x s = 1600 x 2 x 0.015 x 0.001 x 1.6 = 76.8 g\\
+Balsa web:  m = rho\(_\text{balsa}\) x t\(_\text{web}\) x h\(_\text{web}\) x s     = 160 x 0.002 x 0.02125 x 1.6   = 10.9 g\\
+Total main spar (per semi-span): 87.7 g\\
 
 Comparison with Noth data: total half-wing (including skin, ribs, solar cells, servos) = 161.6 g. Spar mass = 87.7 g ${\approx}$ \textbf{54 \% of half-wing mass} --- consistent with a spar-dominated construction.
 
 
 \subsection{C.4 Full-Scale Rear Spar (CFRP Tube)}
 
-
-\begin{verbatim}
-Location: 65 % chord = 162.5 mm from LE
-Airfoil thickness at 65% chord ~ 6%: t_rear = 0.06 x 250 = 15.0 mm
-Section: CFRP rectangular tube 15 x 6 mm, t_wall = 0.5 mm
-I_rear = (6x15^3 - 5x14^3) / 12 (mm^4) x 10^(-)^1^2 m^4/mm^4
-       = (6x3375 - 5x2744)/12 x 10^(-)^1^2 = (20,250 - 13,720)/12 x 10^(-)^1^2 = 544.2 x 10^(-)^1^2
-       ~ 5.44 x 10^(-)^1^0 m^4
-\end{verbatim}
+Location: 65; chord = 162.5 mm from LE\\
+Airfoil thickness at 65\(\%\) chord \(\approx\) 6\(\%\): t\(_\text{rear}\) = 0.06 x 250 = 15.0 mm\\
+Section: CFRP rectangular tube 15 \(\times\) 6 mm, t\(_\text{wall}\) = 0.5 mm\\
+\begin{align*}
+I_{\text{rear}} &= \frac{6 \times 15^{3} - 5 \times 14^{3}}{12} \times 10^{-12} \\
+&= \frac{6 \times 3375 - 5 \times 2744}{12} \times 10^{-12} \\
+&= \frac{20250 - 13720}{12} \times 10^{-12} \\
+&= \frac{6530}{12} \times 10^{-12} \\
+&= 544.167 \times 10^{-12} \\
+&= 5.442 \times 10^{-10}\ \text{m}^4
+\end{align*}
 
 Aileron hinge bending moment (20$^{\circ}$ deflection, aileron span = 30\% of semi-span = 0.48 m):
 
@@ -2973,19 +2871,5 @@ L. Prandtl, “Tragflügeltheorie (Lifting-Line Theory),” Nachrichten der Gese
 \textit{Manual of the ICAO Standard Atmosphere}, 3rd ed., ICAO Doc 7488, International Civil Aviation Organization, Montreal, Canada, 1993.
 
 \end{thebibliography}
-
-
-\begin{enumerate}[noitemsep,topsep=2pt]
-\item Noth, A. and Siegwart, R., \textit{Design of Solar Powered Airplanes for Continuous Flight}, ETH Zürich, Dissertation No. 18010, 2008.
-\item Young, W.C. and Budynas, R.G., \textit{Roark's Formulas for Stress and Strain}, 7th ed., McGraw-Hill, 2002. (Tables 3.1, 8.1, 15.3, 16.1)
-\item Megson, T.H.G., \textit{Aircraft Structures for Engineering Students}, 4th ed., Butterworth-Heinemann.
-\item Maughmer, M.D. and Brandt, S.A., \textit{Aerodynamics for Engineers}, Prentice Hall.
-\item Blevins, R.D., \textit{Formulas for Natural Frequency and Mode Shape}, Van Nostrand Reinhold, 1979.
-\item FAR Part 23, \S{}23.335, \S{}23.337, \S{}23.341 --- \textit{Structural Design Criteria for Small Aircraft}, US FAA.
-\item Timoshenko, S. and Gere, J., \textit{Theory of Elastic Stability}, 2nd ed., McGraw-Hill, 1961. (Plates and shells buckling coefficients.)
-\item Prandtl, L., "Tragflügeltheorie" (\textit{Lifting-Line Theory}), Nachrichten der Gesellschaft der Wissenschaften zu Göttingen, 1918.
-\item ICAO Doc 7488 --- \textit{Manual of the ICAO Standard Atmosphere}, 3rd ed., 1993. (ISA tropospheric temperature lapse rate ${\Lambda}$ = 6.5 K/km.)
-\end{enumerate}
-
 
 \end{document}
