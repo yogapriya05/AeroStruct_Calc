@@ -143,7 +143,7 @@ N_ribs = 40;
 y_ribs = linspace(0, b_mm, N_ribs);
 for i = 1:N_ribs
     plot([y_ribs(i), y_ribs(i)], [0, c_mm], 'Color', [0.5, 0.5, 0.5], ...
-         'LineWidth', 0.5);
+         'LineWidth', 0.5, 'HandleVisibility', 'off');
 end
 
 % D-box shading (LE to FS)
@@ -177,8 +177,8 @@ ylabel('Chordwise position x  (mm)', 'FontSize', 11);
 title({'Figure 1 — Wing Planform (Top View)'; ...
        sprintf('b = %.0f mm, c = %.0f mm, AR = %.2f', b_mm, c_mm, AR)}, ...
       'FontSize', 12);
-legend({'Wing surface', 'D-box skin', 'Front spar (25% c)', ...
-        'Rear spar (65% c)'}, 'Location', 'northeast', 'FontSize', 9);
+legend({'Wing surface', 'Front spar (25% c)', 'Rear spar (65% c)', ...
+        'D-box skin'}, 'Location', 'northeast', 'FontSize', 9);
 axis equal;
 xlim([-25, b_mm + 30]);
 ylim([-30, c_mm + 15]);
@@ -637,7 +637,7 @@ text(c_fab * 0.99, -1.5, 'TE', 'FontSize', 9, ...
 
 % Chord dimension arrow
 annotation('doublearrow', [0.13, 0.91], [0.13, 0.13], ...
-           'HeadStyle', 'plain', 'HeadLength', 6);
+           'HeadStyle', 'plain');
 text(c_fab / 2, -23, sprintf('c = %d mm', c_fab), ...
      'HorizontalAlignment', 'center', 'FontSize', 10);
 
