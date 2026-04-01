@@ -228,7 +228,7 @@ Reynolds number at cruise:
 
 $$Re = \frac{\rho\, v\, c}{\mu} = \frac{1.225 \times 6.33 \times 0.250}{1.789 \times 10^{-5}} = \frac{1.939}{1.789 \times 10^{-5}} = 1.08 \times 10^5$$
 
-This is in the valid operating range for NACA 0012 at these Reynolds numbers.
+This is in the valid operating range for NACA 0012 (Re = 60,000 – 10,000,000; well-characterised at Re ≈ 10⁵ in NASA TM 4074).
 
 Dynamic pressure at cruise:
 
@@ -304,7 +304,7 @@ The V-n diagram defines the structural flight envelope — the combinations of s
 
 $$V_{\text{stall}} = \sqrt{\frac{2W}{\rho\,C_{L,\max}\,S}} = \sqrt{\frac{2 \times 4.905}{1.225 \times 1.05 \times 0.250}} = \sqrt{\frac{9.810}{0.3216}} = \sqrt{30.50} = 5.52\ \text{m/s}$$
 
-where $C_{L,\max} = 1.05$ for the NACA 0012 airfoil at Re ≈ 100,000.
+where $C_{L,\max} = 1.05$ for the NACA 0012 airfoil at Re ≈ 100,000 (Ladson et al., NASA TM 4074, 1988; Sheldahl & Klimas, SAND80-2114).
 
 **Manoeuvre speed:**
 
@@ -511,7 +511,7 @@ The distributed weight of the wing structure acts downward during flight, partia
 
 $$\bar{m} = \frac{m_{\text{wing,half}}}{b/2}$$
 
-From Section 13.4, total wing structure (both halves) = 87.0 g; per half-span: $m_{\text{wing,half}} = 43.5\ \text{g}$ (structural: FS 26.5g + RS 9.6g + 7 ribs ≈ 7.4g per half).
+From Section 13.4, total wing structure (both halves) = 87.0 g; per half-span: $m_{\text{wing,half}} = 43.5\ \text{g}$ (structural: FS 26.5g + RS 9.6g + 7 ribs × 1.1g = 7.7g per half ≈ 43.8g, rounded to 43.5g).
 
 $$\bar{m} = \frac{0.0435}{0.500} = 0.087\ \text{kg/m}$$
 
@@ -767,7 +767,7 @@ $$b_r = t_{\text{rib}} = 3.0\ \text{mm} \quad \text{(minimum practical for 14-ri
 **Check**:
 $$\sigma_r = \frac{6 M_{\text{rib,max}}}{t_{\text{rib}}\, h_r^2} = \frac{6 \times 22.5 \times 10^{-3}}{0.003 \times (0.027)^2} = \frac{0.135}{2.187 \times 10^{-6}} = 61{,}735\ \text{Pa} = 0.062\ \text{MPa}$$
 
-$\sigma_r \ll \sigma_{\text{allow,b}} = 9.8\ \text{MPa}$ ✓ — ribs are very lightly loaded. MS >> 1.
+$\sigma_r \ll \sigma_{\text{allow,b}} = 9.8\ \text{MPa}$ ✓ — ribs are very lightly loaded. MS = (9.8/0.062) − 1 = **157** >> 1.
 
 ### 9.5 Rib mass
 
