@@ -1284,51 +1284,48 @@ $$m_{\text{spars,total}} = 4 \times 26.5 = 106\ \text{g}$$
 
 **Specification:** Medium-density balsa wood sheets, 200 mm × 200 mm × 3 mm thickness, two sheets.
 
-Each sheet yields ribs for NACA 0012 at chord = 250 mm. The chord (250 mm) exceeds the sheet dimension (200 mm), so each rib is cut in two halves: a leading-edge half (0–50 % chord = 125 mm from LE) and a trailing-edge half (50–100 % chord = 125 mm), each fitting within the 200 mm sheet. The two halves are joined at 50 % chord using a 3 mm × 10 mm × 30 mm balsa doubler. Height-wise, the maximum airfoil height of 30 mm is comfortably within the 200 mm sheet. Each sheet provides approximately 7 rib assemblies (200 mm / 28 mm per rib ≈ 7); two sheets provide 14 ribs — exactly the design quantity.
+Each sheet yields ribs for WE3.55-9.3 at chord = 250 mm. The chord (250 mm) exceeds the sheet dimension (200 mm), so each rib is cut in two halves: a leading-edge half (0–50 % chord = 125 mm from LE) and a trailing-edge half (50–100 % chord = 125 mm), each fitting within the 200 mm sheet. The two halves are joined at 50 % chord using a 3 mm × 10 mm × 30 mm balsa doubler. Height-wise, the maximum airfoil height of 23.25 mm is comfortably within the 200 mm sheet. Each sheet provides approximately 7 rib assemblies (200 mm / 26 mm per rib ≈ 7); two sheets provide 14 ribs — exactly the design quantity.
 
 **Why balsa wood:**
 
-1. **Density.** Balsa (≈ 160 kg/m³) is 6× lighter than aluminium (2700 kg/m³) and 17× lighter than steel. Fourteen 3 mm thick ribs add only ~1.1 g each, for a total rib mass ~15 g.
+1. **Density.** Balsa (≈ 160 kg/m³) is 6× lighter than aluminium (2700 kg/m³) and 17× lighter than steel. Fourteen 3 mm thick ribs add only ~0.84 g each, for a total rib mass ~12 g.
 2. **Specific stiffness (E/ρ).** Along-grain balsa has E ≈ 3.4 GPa and ρ = 160 kg/m³, giving a specific modulus of 21 MN·m/kg — comparable to aluminium (25.6 MN·m/kg) at a fraction of the density.
-3. **Machinability.** Balsa cuts cleanly with a scalpel or laser cutter, allowing precise NACA 0012 profiles to be cut without specialist tooling.
+3. **Machinability.** Balsa cuts cleanly with a scalpel or laser cutter, allowing precise WE3.55-9.3 profiles to be cut without specialist tooling.
 4. **Bond compatibility.** Balsa bonds reliably to aluminium rods using CA glue and to polyester film using heat-shrink methods, enabling lightweight integrated construction.
-5. **Sheet size (200 × 200 mm) justification.** NACA 0012 at chord = 250 mm has a maximum width (chord direction) of 250 mm — larger than the 200 mm sheet. For fabrication, each rib is assembled from two halves joined at mid-chord (50 % chord = 125 mm from LE): a leading-edge half (0–125 mm chord) and a trailing-edge half (125–250 mm chord). This joint falls between the two spar notches (front spar at 25 % = 62.5 mm; rear spar at 65 % = 162.5 mm), so neither spar notch is cut at the joint, preserving full notch integrity. The joint is reinforced with a 3 mm × 10 mm × 30 mm balsa doubler bonded with CA glue. Each half fits within the 200 mm sheet with the grain running chord-wise. Two sheets (14 rib assemblies) provide exactly the required count with minimal offcuts.
+5. **Sheet size (200 × 200 mm) justification.** WE3.55-9.3 at chord = 250 mm has a maximum width (chord direction) of 250 mm — larger than the 200 mm sheet. For fabrication, each rib is assembled from two halves joined at mid-chord (50 % chord = 125 mm from LE): a leading-edge half (0–125 mm chord) and a trailing-edge half (125–250 mm chord). This joint falls between the two spar notches (front spar at 25 % = 62.5 mm; rear spar at 65 % = 162.5 mm), so neither spar notch is cut at the joint, preserving full notch integrity. The joint is reinforced with a 3 mm × 10 mm × 30 mm balsa doubler bonded with CA glue. Each half fits within the 200 mm sheet with the grain running chord-wise. Two sheets (14 rib assemblies) provide exactly the required count with minimal offcuts.
 
-### 14.3 Airfoil: NACA 0012
+### 14.3 Airfoil: WE3.55-9.3
 
-**Specification:** NACA 0012 symmetric four-digit airfoil; 14 ribs.
+**Specification:** WE3.55-9.3 cambered airfoil (9.3 % thickness, 3.55 % camber); 14 ribs.
 
-#### Profile equation
+#### Profile parameters
 
-The NACA 0012 ordinate (upper surface) is defined by:
-
-$$y(x) = 0.6\, t_c \left[0.2969\sqrt{\hat{x}} - 0.1260\,\hat{x} - 0.3516\,\hat{x}^2 + 0.2843\,\hat{x}^3 - 0.1015\,\hat{x}^4\right]$$
-
-where $\hat{x} = x/c$, $t_c = 0.12$ (12 % thickness ratio), and y is symmetric above and below the chord line.
+The WE3.55-9.3 airfoil has:
+- Maximum thickness t/c = 9.3 % at ≈ 30 % chord
+- Maximum camber f/c = 3.55 % at ≈ 40 % chord
+- Design cruise C_L ≈ 0.80, C_M,AC ≈ −0.05
 
 At our chord c = 250 mm:
 
-$$t_{\max} = 0.12 \times c = 0.12 \times 250\ \text{mm} = 30\ \text{mm} = \mathbf{3.0\ \text{cm}}$$
+$$t_{\max} = 0.093 \times c = 0.093 \times 250\ \text{mm} = 23.25\ \text{mm} = \mathbf{2.325\ \text{cm}}$$
 
-Maximum thickness occurs at $\hat{x} = 0.30$ (30 % chord = 75 mm from LE). This is the natural location for the front spar.
+#### Key WE3.55-9.3 cross-section parameters at c = 250 mm
 
-#### Key NACA 0012 cross-section parameters at c = 250 mm
+| Station | % chord | x from LE (mm) | Airfoil thickness (approx., mm) |
+|---|---|---|---|
+| Leading edge | 0 % | 0 | 0 |
+| Front spar | 25 % | 62.5 | 20.0 |
+| Max thickness | 30 % | 75.0 | 23.25 |
+| Rear spar | 65 % | 162.5 | 13.5 |
+| Trailing edge | 100 % | 250 | 0 |
 
-| Station | % chord | x from LE (mm) | Half-thickness y (mm) | Full height (mm) |
-|---|---|---|---|---|
-| Leading edge | 0 % | 0 | 0 | 0 |
-| Front spar | 25 % | 62.5 | 15.0 | 30.0 |
-| Max thickness | 30 % | 75.0 | 15.0 | 30.0 |
-| Rear spar | 65 % | 162.5 | 10.35 | 20.7 |
-| Trailing edge | 100 % | 250 | 0 | 0 |
+#### Why WE3.55-9.3?
 
-#### Why NACA 0012?
-
-1. **Symmetry.** NACA 0012 is symmetric ($C_{M,AC} = 0$, zero camber), producing zero net pitching moment at zero angle of attack. This simplifies the structural torque analysis and reduces torsional loads on the wing.
-2. **12 % thickness.** The relatively thick profile provides adequate internal space for the spar rods (5 mm diameter) and allows stiff ribs without excessively deep airfoil sections. The maximum thickness of 30 mm at the spar location comfortably accommodates a ∅ 5 mm rod with clearance on all sides.
-3. **Universality and data availability.** NACA 0012 is the most extensively tested airfoil in aerodynamic literature (NACA TN 2412, Ladson et al., NASA TM 4074). Aerodynamic coefficients are available for Re = 10⁴ – 10⁷, making analysis straightforward.
-4. **14 ribs.** With a 1 m span and 14 ribs, the rib pitch is $\Delta y = 1000/(14-1) = 76.9\ \text{mm}$. This pitch provides adequate NACA 0012 profile accuracy for prototype flight.
-5. **Template availability.** NACA 0012 profiles are freely available as printable templates (UIUC Airfoil Database), and the smooth leading-edge geometry is achievable by sanding balsa sheet ribs cut with a scalpel.
+1. **Designed for solar UAV conditions.** The WE3.55-9.3 airfoil was designed for low-Reynolds-number (Re ≈ 80,000–300,000) solar-powered UAV cruise, directly matching the mission profile.
+2. **9.3 % thickness.** The profile provides adequate internal space for the spar rods (5 mm at FS, 3 mm at RS), with h_FS = 20.0 mm and h_RS = 13.5 mm accommodating both diameters with margin.
+3. **Camber for solar UAV efficiency.** The 3.55 % camber gives C_L ≈ 0.80 at low angle of attack, reducing induced drag at the design cruise condition.
+4. **14 ribs.** With a 1 m span and 14 ribs, the rib pitch is $\Delta y = 1000/(14-1) = 76.9\ \text{mm}$. This pitch provides adequate WE3.55-9.3 profile accuracy for prototype flight.
+5. **Template availability.** WE3.55-9.3 profiles are available from the UIUC Airfoil Database, and the profile is achievable by laser-cutting or sanding balsa sheet ribs to the template.
 
 ### 14.4 Wing Planform — 1 m Span
 
@@ -1423,7 +1420,7 @@ Testing is conducted in three phases: (A) material/coupon level, (B) component l
 1. Glue one complete rib into a test fixture that mimics the spar-to-spar bay (two 5 mm rod supports 100 mm apart, matching the front spar – rear spar spacing).
 2. Apply a uniformly distributed load to the upper rib surface using a 100 mm × 91 mm foam pad loaded with calibrated weights, simulating the rib distributed load $q_\text{rib} = 6.0\ \text{N/m}$ at root.
 3. Total applied load at design condition: $F_{\text{design}} = q_\text{rib} \times c_{\text{rib}} \times \Delta y = 6.0 \times 0.100 \times 0.091 = 0.055\ \text{N}$ (where $c_{\text{rib}} = 100\ \text{mm}$ is the inter-spar chord span of the rib). Apply this load, then increase to **0.11 N (2 × design load)** as an over-load check.
-4. Check that the rib chord-wise profile deviates less than 0.5 mm from the nominal NACA 0012 template using a profile gauge or feeler gauges at both 0.055 N (design load) and 0.11 N (2 × design load).
+4. Check that the rib chord-wise profile deviates less than 0.5 mm from the nominal WE3.55-9.3 template using a profile gauge or feeler gauges at both 0.055 N (design load) and 0.11 N (2 × design load).
 
 **Expected results:** Maximum rib deflection under design load (0.055 N) ≪ 0.1 mm; under 2 × design load (0.11 N) deflection should remain < 0.2 mm. The rib should show no detectable permanent deformation after unloading. This confirms that rib sizing is governed by minimum practical thickness (2 mm), not stress.
 
@@ -1523,7 +1520,7 @@ $$\delta = \frac{FL^3}{3EI} = \frac{F \times (0.47)^3}{3 \times 69 \times 10^9 \
 
 #### Test C2: Wing Torsion Verification (Zero Torsion Check)
 
-**Purpose:** Confirm that the assembled wing exhibits negligible twist under aerodynamic loading, consistent with the NACA 0012 zero-torsion prediction (T_root = 0, §10).
+**Purpose:** Confirm that the assembled wing exhibits minimal twist under aerodynamic loading, consistent with the WE3.55-9.3 open-section torsion analysis (T_root = 0.105 N·m, §10).
 
 **Procedure:**
 1. With the wing mounted root-fixed, apply a small equal-and-opposite couple at 75 % semi-span (nose-down/nose-up) at the leading edge and trailing edge of one rib, 375 mm from the root.
