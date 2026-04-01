@@ -1216,6 +1216,165 @@ Total rib mass:
 m_{\text{ribs}} = 40 \times 0.80 = 32.0\ \text{g}
 \]
 
+\newpage \section{Alternative Rib Design: Acrylic Sheet Ribs}
+
+This section analyses an alternative rib material --- \textbf{cast acrylic (PMMA)} --- and determines the required rib thickness and its effect on the overall structural design. All spar sizing remains unchanged; only the rib material changes.
+
+\subsection{Acrylic (PMMA) Material Properties}
+
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+Property & Symbol & Value \\
+\hline
+Young's modulus & E\_ac & 3.2 GPa \\
+\hline
+Flexural strength (MOR) & ${\sigma}$\_f & 100 MPa \\
+\hline
+Tensile strength & ${\sigma}$\_t & 70 MPa \\
+\hline
+Density & ${\rho}$\_ac & 1180 kg/m$^{3}$ \\
+\hline
+Allowable bending stress ($= \sigma_f / \text{FOS}$) & ${\sigma}$\_allow,ac & 100 / 1.5 = \textbf{66.7 MPa} \\
+\hline
+Shear modulus & G\_ac & $\approx$ 1.2 GPa \\
+\hline
+Poisson's ratio & ${\nu}$ & 0.37 \\
+\hline
+\end{tabular}
+\end{center}
+
+Compared with balsa wood: acrylic is \textbf{7.4$\times$ heavier} ($\rho_{ac}/\rho_b = 1180/160$) but \textbf{6.8$\times$ stronger} in bending allowable ($\sigma_{\text{allow,ac}}/\sigma_{\text{allow,b}} = 66.7/9.8$). The result is a more rigid but significantly heavier rib.
+
+\subsection{Rib Load (Same as No.9.2)}
+
+The rib loads are independent of rib material. Using the existing 40-rib design (No.9):
+
+\[
+\Delta y = 25.1\ \text{mm}, \quad F_{\text{rib,root}} = 23.91 \times 0.0251 = 0.600\ \text{N}
+\]
+
+\[
+L_{\text{rib}} = 100\ \text{mm}, \quad q_{\text{rib}} = 6.0\ \text{N/m}
+\]
+
+\[
+M_{\text{rib,max}} = \frac{q_{\text{rib}}\, L_{\text{rib}}^2}{8} = \frac{6.0 \times (0.100)^2}{8} = 7.5 \times 10^{-3}\ \text{N}\cdot\text{m}
+\]
+
+Rib depth at mid-span (45\% chord, WE3.55-9.3):
+\[
+h_r \approx 0.90 \times t_{\max} = 0.90 \times 23.25 = 20.9\ \text{mm}
+\]
+
+\subsection{Acrylic Rib Thickness Calculation}
+
+\textbf{Section modulus:} $Z_r = t_{\text{rib}} \times h_r^2 / 6$
+
+Setting $\sigma = M/Z \leq \sigma_{\text{allow,ac}}$:
+
+\[
+t_{\text{rib}} \geq \frac{6 M_{\text{rib,max}}}{\sigma_{\text{allow,ac}}\, h_r^2} = \frac{6 \times 7.5 \times 10^{-3}}{66.7 \times 10^6 \times (20.9 \times 10^{-3})^2}
+\]
+
+\[
+= \frac{0.045}{66.7 \times 10^6 \times 4.368 \times 10^{-4}} = \frac{0.045}{29{,}134} = 1.545 \times 10^{-6}\ \text{m} = 0.0015\ \text{mm}
+\]
+
+The stress-derived minimum is negligible. \textbf{Practical minimum for laser-cut acrylic: 2.0 mm.}
+
+\[
+\boxed{t_{\text{rib,acrylic}} = 2.0\ \text{mm}}
+\]
+
+\textbf{Stress check} (2 mm acrylic):
+\[
+\sigma_{r,ac} = \frac{6 \times 7.5 \times 10^{-3}}{0.002 \times (0.0209)^2} = \frac{0.045}{8.737 \times 10^{-7}} = 51{,}510\ \text{Pa} = 0.052\ \text{MPa}
+\]
+
+\[
+\text{MS}_{ac} = \frac{66.7}{0.052} - 1 = 1282 \gg 1 \quad \checkmark
+\]
+
+\subsection{Spar Thickness with Acrylic Ribs}
+
+Spar sizing is governed by wing bending loads, which are independent of rib material. The same aluminium alloy (Al 6061-T6) spar diameters apply:
+
+\textbf{Front spar minimum radius from bending:}
+\[
+r^3 \geq \frac{4 M_{spar}}{\pi \sigma_{\text{allow}}} = \frac{4 \times 2.025}{\pi \times 206.7 \times 10^6} = 1.248 \times 10^{-8}\ \text{m}^3 \implies r_{\min} = 2.32\ \text{mm}
+\]
+\[
+\boxed{d_{FS} = 5\ \text{mm}} \quad \sigma_{FS} = 165.0\ \text{MPa}, \quad \text{MS} = +0.25\ \checkmark
+\]
+
+\textbf{Rear spar minimum radius:}
+\[
+r_{RS,\min} = \left(\frac{4 \times 0.225}{\pi \times 206.7 \times 10^6}\right)^{1/3} = 1.115 \times 10^{-3}\ \text{m} = 1.12\ \text{mm}
+\]
+\[
+\boxed{d_{RS} = 3\ \text{mm}} \quad \sigma_{RS} = 84.9\ \text{MPa}, \quad \text{MS} = +1.43\ \checkmark
+\]
+
+Spar diameters are \textbf{unchanged} from the balsa-rib design.
+
+\subsection{Acrylic Rib Mass}
+
+Approximate rib plan area (WE3.55-9.3, $c = 250$ mm, $t_{\max} = 23.25$ mm):
+\[
+A_{\text{rib}} \approx 0.250 \times 0.020 / 2 = 2.5 \times 10^{-3}\ \text{m}^2
+\]
+
+Mass of one acrylic rib (2 mm thick):
+\[
+m_{\text{rib,ac}} = \rho_{ac} \times t_{\text{rib,ac}} \times A_{\text{rib}} = 1180 \times 0.002 \times 2.5 \times 10^{-3} = 5.90 \times 10^{-3}\ \text{kg} = 5.90\ \text{g}
+\]
+
+Total acrylic rib mass (40 ribs):
+\[
+m_{\text{ribs,ac}} = 40 \times 5.90 = 236.0\ \text{g}
+\]
+
+\subsection{Mass Comparison: Balsa vs Acrylic}
+
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+Component & Balsa Ribs (2 mm) & Acrylic Ribs (2 mm) & Difference \\
+\hline
+Front spar (both half-spars) & 52 g & 52 g & - \\
+\hline
+Rear spar (both half-spars) & 19 g & 19 g & - \\
+\hline
+Ribs (40$\times$) & 32 g & 236 g & \textbf{+204 g} \\
+\hline
+Leading-edge D-box skin & 50 g & 50 g & - \\
+\hline
+\textbf{Total structural} & \textbf{$\sim$203 g} & \textbf{$\sim$407 g} & \textbf{+204 g (+100\%)} \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Why Choose Acrylic Ribs?}
+
+\textbf{Advantages of acrylic over balsa:}
+\begin{enumerate}[noitemsep,topsep=2pt]
+\item \textbf{Dimensional stability:} Acrylic does not absorb moisture; will not warp with humidity changes.
+\item \textbf{Isotropy:} Balsa is strongly anisotropic (weaker across grain). Acrylic is isotropic.
+\item \textbf{Precision machining:} CO$_2$ laser-cut acrylic achieves $\pm$0.1 mm tolerance on NACA profiles.
+\item \textbf{Surface quality:} Smooth acrylic bonds well with structural adhesives and film covering.
+\item \textbf{Impact resistance:} More tolerant of chord-wise impact (e.g., landing loads) than balsa.
+\end{enumerate}
+
+\textbf{Disadvantages:}
+\begin{enumerate}[noitemsep,topsep=2pt]
+\item \textbf{Mass penalty:} 236 g vs 32 g --- acrylic ribs add 204 g to structural mass.
+\item \textbf{Brittleness:} Acrylic is brittle under concentrated point loads; spar notches require generous radii ($r \geq 1$ mm).
+\item \textbf{Not suitable for flight-critical applications} where minimum mass is the priority.
+\end{enumerate}
+
+\textbf{Recommendation:} Use acrylic ribs for \textbf{ground test specimens}, \textbf{structural demonstration models}, or \textbf{display wings} where dimensional stability and appearance outweigh mass. For flight-critical solar UAV construction, use balsa wood (2 mm).
+
 \newpage \section{Torsion Analysis}
 
 \subsection{Applied aerodynamic torque}
