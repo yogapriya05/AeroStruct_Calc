@@ -1768,7 +1768,7 @@ Torsional divergence occurs when aerodynamic pitching moment overcomes torsional
 V_{\text{div}} = \frac{\pi}{2s}\sqrt{\frac{GJ_{\text{eff}}}{\frac{1}{2}\rho\, c^2\, a\, e}}
 \]
 
-where e = elastic axis to aerodynamic-centre offset. With the main spar at 25 \% chord and aerodynamic centre at 25 \% chord for the symmetric WE3.55-9.3 airfoil: \textbf{e ${\approx}$ 0} (they coincide), giving a theoretically infinite divergence speed.
+where e = elastic axis to aerodynamic-centre offset. With the main spar at 25 \% chord and aerodynamic centre at 25 \% chord for the WE3.55-9.3 airfoil, the structural elastic axis coincides with the aerodynamic centre, giving a very large divergence speed (see §12.5.1).
 
 For a practical tolerance of e = 0.01 ${\times}$ c = 2.5 mm (construction offset):
 
@@ -1782,7 +1782,7 @@ V_{\text{div}} = \frac{\pi}{2 \times 0.490}\sqrt{\frac{103.1}{\frac{1}{2} \times
 
 $\checkmark $ \textbf{Divergence speed $\gg$ V\_D.} The wing is divergence-free at all practical flight speeds.
 
-For the NACA 0012 prototype (symmetric, $C_{M,AC} = 0$, e = 0 exactly): divergence is impossible by definition. $\checkmark $
+For the WE3.55-9.3 wing with the spar at the aerodynamic centre (25\%c), the effective divergence eccentricity is small; the divergence speed far exceeds the design dive speed. $\checkmark $
 
 
 \subsubsection{Bending-Torsion Flutter Speed (Frequency-Ratio Method)}
@@ -1961,21 +1961,21 @@ The prototype wing for the fabrication exercise uses the following parameters (u
 \hline
 Parameter & Symbol & Value & Derivation \\
 \hline
-Airfoil & - & NACA 0012 & 12 \% symmetric; refer No.14.3 \\
+Airfoil & - & WE3.55-9.3 & 9.3 \% t/c, 3.55 \% camber; refer No.14.3 \\
 \hline
-Maximum thickness & $t_{\max}$ & 3.6 cm = 36 mm & 12 \% $\times$ chord (refer No.14.3) \\
+Maximum thickness & $t_{\max}$ & 2.325 cm = 23.25 mm & 9.3 \% $\times$ chord = $0.093 \times 250$ mm \\
 \hline
-Chord & $c$ & 0.30 m = 300 mm & $t_{\max} / 0.12 = 36/0.12 = 300$ mm \\
+Chord & $c$ & 0.25 m = 250 mm & Consistent with main analysis (No.2.1) \\
 \hline
 Wing span (planform length) & $b$ & 1.00 m & Design requirement \\
 \hline
-Number of ribs & $N$ & 12 & One per 91 mm bay; refer No.14.4 \\
+Number of ribs & $N$ & 14 & One per 76.9 mm bay; refer No.14.4 \\
 \hline
 Spar diameter (both spars) & $d$ & 5 mm & Aluminium rod; refer No.14.2 \\
 \hline
-Wing area & $S$ & $b \times c = 0.30$ m$^{2}$ & Rectangular planform \\
+Wing area & $S$ & $b \times c = 0.25$ m$^{2}$ & Rectangular planform \\
 \hline
-Aspect ratio & $AR$ & $b^{2} / S = 1.00 / 0.30 = 3.33$ & - \\
+Aspect ratio & $AR$ & $b^{2} / S = 1.00 / 0.25 = 4.00$ & - \\
 \hline
 \end{tabularx}
 \end{center}
@@ -1995,7 +1995,7 @@ Item & Material & Specification & Quantity & Unit & Reason \\
 \hline
 \textbf{Rib blanks} & Balsa wood sheet (medium density, $\sim$160 kg/m$^{3}$) & 200 mm $\times$ 200 mm $\times$ 2 mm & 2 & sheets & refer No.14.2.2 \\
 \hline
-\textbf{Airfoil templates} & NACA 0012 (cut from balsa sheet) & Chord 300 mm $\times$ span-width 2 mm & 12 & ribs & refer No.14.3 \\
+\textbf{Airfoil templates} & WE3.55-9.3 (cut from balsa sheet) & Chord 250 mm $\times$ span-width 2 mm & 14 & ribs & refer No.14.3 \\
 \hline
 \textbf{Rib doubler strips} & Balsa wood sheet (same batch) & 2 mm $\times$ 10 mm $\times$ 30 mm & 24 & pieces & Joint reinforcement at spar cut-line in each rib \\
 \hline
@@ -2096,73 +2096,74 @@ m_{\text{spars,total}} = 4 \times 26.5 = 106\ \text{g}
 
 \textbf{Specification:} Medium-density balsa wood sheets, 200 mm ${\times}$ 200 mm ${\times}$ 2 mm thickness, two sheets.
 
-Each sheet yields 6 complete airfoil rib assemblies for NACA 0012 at chord = 300 mm. Because the chord (300 mm) exceeds the sheet dimension (200 mm), each rib is cut in two halves: a leading-edge half (0-50 \% chord = 150 mm) and a trailing-edge half (50-100 \% chord = 150 mm), each fitting within the 200 mm sheet with the grain running along the chord direction. The two halves are joined at the 50 \% chord station using a thin 2 mm ${\times}$ 10 mm ${\times}$ 30 mm balsa doubler strip bonded with CA glue (listed separately in the BoM). Height-wise, the maximum airfoil height of 36 mm is comfortably within the 200 mm sheet. With two sheets ${\times}$ 6 rib assemblies each = \textbf{12 ribs} - exactly the design quantity, with minimal offcuts.
+Each sheet yields complete airfoil rib assemblies for WE3.55-9.3 at chord = 250 mm. Because the chord (250 mm) exceeds the sheet dimension (200 mm), each rib is cut in two halves: a leading-edge half (0--50\% chord = 125 mm from LE) and a trailing-edge half (50--100\% chord = 125 mm), each fitting within the 200 mm sheet with the grain running along the chord direction. The two halves are joined at the 50\% chord station using a thin 2 mm ${\times}$ 10 mm ${\times}$ 30 mm balsa doubler strip bonded with CA glue. Height-wise, the maximum airfoil height of 23.25 mm is well within the 200 mm sheet. Each sheet provides approximately 7 rib assemblies; two sheets provide 14 ribs --- exactly the design quantity.
 
 \textbf{Why balsa wood:}
 
 \begin{enumerate}[noitemsep,topsep=2pt]
 \item \textbf{Density.} Balsa (${\approx}$ 160 kg/m$^{3}$) is 6${\times}$ lighter than aluminium (2700 kg/m$^{3}$) and 17${\times}$ lighter than steel. Twelve 2 mm thick ribs add only ~3 g each, for a total rib mass under 36 g.
 \item \textbf{Specific stiffness (E/${\rho}$).} Along-grain balsa has E ${\approx}$ 3.4 GPa and ${\rho}$ = 160 kg/m$^{3}$, giving a specific modulus of 21 MN${\cdot}$m/kg - comparable to aluminium (25.6 MN${\cdot}$m/kg) at a fraction of the density.
-\item \textbf{Machinability.} Balsa cuts cleanly with a scalpel or laser cutter, allowing precise NACA 0012 profiles to be cut without specialist tooling.
+\item \textbf{Machinability.} Balsa cuts cleanly with a scalpel or laser cutter, allowing precise WE3.55-9.3 profiles to be cut without specialist tooling.
 \item \textbf{Bond compatibility.} Balsa bonds reliably to aluminium rods using CA glue and to polyester film using heat-shrink methods, enabling lightweight integrated construction.
-\item \textbf{Sheet size (200 ${\times}$ 200 mm) justification.} NACA 0012 at chord = 300 mm has a maximum width (chord direction) of 300 mm - larger than the 200 mm sheet. For fabrication, each rib is assembled from two halves joined at mid-chord (50 \% chord = 150 mm from LE): a leading-edge half (0-150 mm chord) and a trailing-edge half (150-300 mm chord). This joint falls between the two spar notches (front spar at 25 \% = 75 mm; rear spar at 65 \% = 195 mm), so neither spar notch is cut at the joint, preserving full notch integrity. The joint is reinforced with a 2 mm ${\times}$ 10 mm ${\times}$ 30 mm balsa doubler bonded with CA glue. Each half fits within the 200 mm sheet with the grain running chord-wise. Two sheets (12 rib assemblies) provide exactly the required count with minimal offcuts.
+\item \textbf{Sheet size (200 ${\times}$ 200 mm) justification.} WE3.55-9.3 at chord = 250 mm has a maximum width (chord direction) of 250 mm --- larger than the 200 mm sheet. Each rib is assembled from two halves joined at mid-chord (50\% chord = 125 mm from LE). This joint falls between the two spar notches (front spar at 25\% = 62.5 mm; rear spar at 65\% = 162.5 mm), preserving full notch integrity. The joint is reinforced with a 2 mm ${\times}$ 10 mm ${\times}$ 30 mm balsa doubler bonded with CA glue. Two sheets provide exactly 14 ribs with minimal offcuts.
 \end{enumerate}
 
-\subsection{Airfoil: NACA 0012}
+\subsection{Airfoil: WE3.55-9.3}
 
-\textbf{Specification:} NACA 0012 symmetric four-digit airfoil; 12 ribs.
+\textbf{Specification:} WE3.55-9.3 cambered airfoil (9.3\% thickness, 3.55\% camber); 14 ribs at chord = 250 mm.
 
-\subsubsection{Profile equation}
-
-The NACA 0012 ordinate (upper surface) is defined by:
-\[
-y(x) = 0.6\, t_c \left[0.2969\sqrt{\hat{x}} - 0.1260\,\hat{x} - 0.3516\,\hat{x}^2 + 0.2843\,\hat{x}^3 - 0.1015\,\hat{x}^4\right]
-\]
-
-where $\hat{x} = x/c$, $t_c = 0.12$ (12 \% thickness ratio), and y is symmetric above and below the chord line.
-
-At our chord c = 300 mm (derived from maximum thickness requirement):
-\[
-t_{\max} = 0.12 \times c = 0.12 \times 300\ \text{mm} = 36\ \text{mm} = \mathbf{3.6\ \text{cm}}
-\]
-
-Maximum thickness occurs at $\hat{x} = 0.30$ (30 \% chord = 90 mm from LE). This is the natural location for the front spar.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.905\linewidth]{Fig8_NACA_0012_Airfoil_Profile.png}
-    \caption{NACA 0012 Airfoil Profile}
-    \label{fig:fig8}
-\end{figure}
-
-\subsubsection{Key NACA 0012 cross-section parameters at c = 300 mm}
+\subsubsection{Profile parameters}
 
 \begin{center}
-\begin{tabular}{|l|l|l|l|l|}
+\begin{tabular}{|l|l|l|}
 \hline
-Station & \% chord & x from LE (mm) & Half-thickness y (mm) & Full height (mm) \\
+Parameter & Symbol & Value \\
 \hline
-Leading edge & 0 \% & 0 & 0 & 0 \\
+Max thickness & t/c & 9.3\% \\
 \hline
-Front spar & 25 \% & 75 & 15.5 & 31.0 \\
+Max thickness location & - & $\approx$ 30\% chord = 75 mm from LE \\
 \hline
-Max thickness & 30 \% & 90 & 18.0 & 36.0 \\
+Max camber & f/c & 3.55\% \\
 \hline
-Rear spar & 65 \% & 195 & 11.0 & 22.0 \\
+Max camber location & - & $\approx$ 40\% chord = 100 mm from LE \\
 \hline
-Trailing edge & 100 \% & 300 & 0 & 0 \\
+Pitching moment (about AC) & $C_{M,AC}$ & $\approx -0.05$ \\
+\hline
+Design $C_L$ & - & 0.80 \\
+\hline
+Aerodynamic centre & $x_{AC}/c$ & 0.25 \\
 \hline
 \end{tabular}
 \end{center}
 
-\subsubsection{Why NACA 0012?}
+\subsubsection{Key WE3.55-9.3 cross-section parameters at c = 250 mm}
+
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+Station & \% chord & x from LE (mm) & Airfoil thickness (approx, mm) \\
+\hline
+Leading edge & 0\% & 0 & 0 \\
+\hline
+Front spar & 25\% & 62.5 & 20.0 \\
+\hline
+Max thickness & 30\% & 75.0 & 23.25 \\
+\hline
+Rear spar & 65\% & 162.5 & 13.5 \\
+\hline
+Trailing edge & 100\% & 250.0 & 0 \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsubsection{Why WE3.55-9.3?}
 
 \begin{enumerate}[noitemsep,topsep=2pt]
-\item \textbf{Symmetry.} NACA 0012 is symmetric ($C_{M,AC} = 0$, zero camber), producing zero net pitching moment at zero angle of attack. This simplifies the structural torque analysis and reduces torsional loads on the wing.
-\item \textbf{12 \% thickness.} The relatively thick profile provides adequate internal space for the spar rods (5 mm diameter) and allows stiff ribs without excessively deep airfoil sections. The maximum thickness of 36 mm at the spar location comfortably accommodates a $\varnothing$ 5 mm rod with clearance on all sides.
-\item \textbf{Universality and data availability.} NACA 0012 is the most extensively tested airfoil in aerodynamic literature (NACA TN 2412, Ladson et al., NASA TM 4074). Aerodynamic coefficients are available for Re = 10$^{4}$ - 10$^{7}$, making analysis straightforward.
-\item \textbf{12 ribs.} With a 1 m span and 12 ribs, the rib pitch is $\Delta y = 1000/(12-1) = 90.9\ \text{mm} \approx 91\ \text{mm}$. This pitch keeps the skin-buckling panel size small (aspect ratio of panel ${\approx}$ 100 mm / 91 mm ${\approx}$ 1.1 - nearly square - which maximises the shear buckling coefficient $k_s$) and ensures adequate solar-cell support if the design is extended to a solar UAV configuration.
-\item \textbf{Template availability.} NACA 0012 profiles are freely available as printable templates (UIUC Airfoil Database), and the smooth leading-edge geometry is achievable by sanding balsa sheet ribs cut with a scalpel.
+\item \textbf{Performance.} The WE3.55-9.3 was used in the original experiments and calculations for this solar UAV design, providing validated aerodynamic data at the design Reynolds number.
+\item \textbf{Camber benefit.} With $f/c = 3.55\%$ camber, the airfoil generates $C_L \approx 0.80$ at low angle of attack, reducing induced drag at cruise.
+\item \textbf{Low Reynolds number.} Designed to operate efficiently at Re $\approx 10^5$, which matches the cruise condition of our 1 m span prototype.
+\item \textbf{Structural depth.} The 9.3\% thickness provides $t_{\max} = 23.25$ mm at the front spar, comfortably accommodating a $\varnothing$ 5 mm spar rod.
+\item \textbf{Template availability.} WE3.55-9.3 ordinates are available from standard airfoil databases (UIUC Airfoil Coordinate Database) for laser-cut or hand-cut rib templates.
 \end{enumerate}
 
 \subsection{Wing Planform - 1 m Span}
@@ -2174,7 +2175,7 @@ Parameter & Value & Reason \\
 \hline
 Span $b$ & 1.00 m & Standard 1 m bench/table test span; fits in a standard lab test rig; commonly used for academic prototypes \\
 \hline
-Chord $c$ & 0.30 m & Set by NACA 0012 at $t_{\max} = 3.6$ cm: $c = 36\,\text{mm} / 0.12 = 300\,\text{mm}$ \\
+Chord $c$ & 0.25 m & Consistent with main analysis (No.2.1); WE3.55-9.3 at $t_{\max} = 23.25$ mm: $c = 23.25/0.093 = 250$ mm \\
 \hline
 Aspect ratio $AR$ & $b^{2}/S = 1.00 / (1.00 \times 0.30) = \mathbf{3.33}$ & Moderate AR typical of prototype demonstration wings \\
 \hline
